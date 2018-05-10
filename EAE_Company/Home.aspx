@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master" EnableEventValidation="false" AutoEventWireup="true" CodeFile="Home.aspx.cs" Inherits="_Default" %>
 
+<%@ Import Namespace="EAE_Company.Models" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
     <%--CSS--%>
     <link href="/Content/Home/shop-homepage.css" rel="stylesheet">
     <%--<link href="/Content/Home/bootstrap.min.css" rel="stylesheet" type="text/css">--%> <%--LOI --%>
@@ -113,106 +115,36 @@
                 <div class="col-md-12 sale-product">
                     <h2>New Arrivals</h2>
                     <div class="owl-carousel owl-carousel5">
+
+                        <!-- BEGIN NEW ARRIVAL ITEM LIST -->
+                        <% List<Item> newArrivals = (List<Item>)Session["newArrivals"];
+                            string language = Session["language"].ToString().Trim();
+                            foreach (Item item in newArrivals)
+                            {
+                                // UPDATE LANGUAGE FOR THIS SESSION 
+                                item.setLanguage(language);
+                        %>
                         <div>
                             <div class="product-item">
                                 <div class="pi-img-wrapper">
-                                    <img src="assets/pages/img/products/model1.jpg" class="img-responsive" alt="Berry Lace Dress">
+                                    <img src="<%=item.getFirstImage() %>" class="img-responsive" alt="Berry Lace Dress">
                                     <div>
-                                        <a href="assets/pages/img/products/model1.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                                        <a href="<%=item.getFirstImage() %>" class="btn btn-default fancybox-button">Zoom</a>
                                         <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                                     </div>
                                 </div>
-                                <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                                <h3><a href="shop-item.html"><%= item.getName() %></a></h3>
                                 <div class="pi-price">$29.00</div>
                                 <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
                                 <div class="sticker sticker-sale"></div>
                             </div>
                         </div>
-                        <div>
-                            <div class="product-item">
-                                <div class="pi-img-wrapper">
-                                    <img src="assets/pages/img/products/model2.jpg" class="img-responsive" alt="Berry Lace Dress">
-                                    <div>
-                                        <a href="assets/pages/img/products/model2.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                    </div>
-                                </div>
-                                <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
-                                <div class="pi-price">$29.00</div>
-                                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="product-item">
-                                <div class="pi-img-wrapper">
-                                    <img src="assets/pages/img/products/may_det/1.jpg" class="img-responsive" alt="Berry Lace Dress">
-                                    <div>
-                                        <a href="assets/pages/img/products/may_det/1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                    </div>
-                                </div>
-                                <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
-                                <div class="pi-price">$29.00</div>
-                                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="product-item">
-                                <div class="pi-img-wrapper">
-                                    <img src="assets/pages/img/products/may_det/2.jpg" class="img-responsive" alt="Berry Lace Dress">
-                                    <div>
-                                        <a href="assets/pages/img/products/may_det/2.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                    </div>
-                                </div>
-                                <h3><a href="javascript:;">Berry Lace Dress4</a></h3>
-                                <div class="pi-price">$29.00</div>
-                                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                                <div class="sticker sticker-new"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="product-item">
-                                <div class="pi-img-wrapper">
-                                    <img src="assets/pages/img/products/model5.jpg" class="img-responsive" alt="Berry Lace Dress">
-                                    <div>
-                                        <a href="assets/pages/img/products/model5.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                    </div>
-                                </div>
-                                <h3><a href="shop-item.html">Berry Lace Dress5</a></h3>
-                                <div class="pi-price">$29.00</div>
-                                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="product-item">
-                                <div class="pi-img-wrapper">
-                                    <img src="assets/pages/img/products/model3.jpg" class="img-responsive" alt="Berry Lace Dress">
-                                    <div>
-                                        <a href="assets/pages/img/products/model3.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                    </div>
-                                </div>
-                                <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
-                                <div class="pi-price">$29.00</div>
-                                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="product-item">
-                                <div class="pi-img-wrapper">
-                                    <img src="assets/pages/img/products/model7.jpg" class="img-responsive" alt="Berry Lace Dress">
-                                    <div>
-                                        <a href="assets/pages/img/products/model7.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                    </div>
-                                </div>
-                                <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
-                                <div class="pi-price">$29.00</div>
-                                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                            </div>
-                        </div>
+
+                        <%
+                            }
+                        %>
+
+                        <!-- END NEW ARRIVAL ITEM LIST -->
                     </div>
                 </div>
                 <!-- END SALE PRODUCT -->
@@ -227,11 +159,12 @@
                         <li class="list-group-item clearfix dropdown">
                             <a href="shop-product-list.html">
                                 <i class="fa fa-angle-right"></i>
-                               <asp:Label runat="server" Text="<%$ Resources:SiteMaster, industrialElectronics %>"> </asp:Label>
+                                <asp:Label runat="server" Text="<%$ Resources:SiteMaster, industrialElectronics %>"> </asp:Label>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, sensor %>"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="<%$ Resources:SiteMaster, sensor %>"></asp:Label></a>
                                     <ul class="dropdown-menu">
                                         <li class="list-group-item dropdown clearfix">
                                             <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>Classic </a>
@@ -249,16 +182,19 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, measuringDevice %>"></asp:Label></a></li>
-                                <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, switchgear %>"></asp:Label></a></li>
-                                <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, programmingTools %>"></asp:Label></a></li>
+                                <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                    <asp:Label runat="server" Text="<%$ Resources:SiteMaster, measuringDevice %>"></asp:Label></a></li>
+                                <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                    <asp:Label runat="server" Text="<%$ Resources:SiteMaster, switchgear %>"></asp:Label></a></li>
+                                <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                    <asp:Label runat="server" Text="<%$ Resources:SiteMaster, programmingTools %>"></asp:Label></a></li>
                             </ul>
                         </li>
 
                         <li class="list-group-item clearfix dropdown">
                             <a href="shop-product-list.html">
                                 <i class="fa fa-angle-right"></i>
-                               <asp:Label runat="server" Text="<%$ Resources:SiteMaster, electronicAutomation %>"> </asp:Label>
+                                <asp:Label runat="server" Text="<%$ Resources:SiteMaster, electronicAutomation %>"> </asp:Label>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="list-group-item dropdown clearfix">
@@ -290,11 +226,12 @@
                         <li class="list-group-item clearfix dropdown">
                             <a href="shop-product-list.html">
                                 <i class="fa fa-angle-right"></i>
-                               <asp:Label runat="server" Text="<%$ Resources:SiteMaster, mitsubishi %>"> </asp:Label>
+                                <asp:Label runat="server" Text="<%$ Resources:SiteMaster, mitsubishi %>"> </asp:Label>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, mitsbishi_inverter %>"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="<%$ Resources:SiteMaster, mitsbishi_inverter %>"></asp:Label></a>
                                     <ul class="dropdown-menu">
                                         <li class="list-group-item dropdown clearfix">
                                             <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>Classic </a>
@@ -313,7 +250,8 @@
                                     </ul>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, mitsubishi_cutoff %>"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="<%$ Resources:SiteMaster, mitsubishi_cutoff %>"></asp:Label></a>
                                     <ul class="dropdown-menu">
                                         <li class="list-group-item dropdown clearfix">
                                             <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>Classic </a>
@@ -332,7 +270,8 @@
                                     </ul>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, PLC_Mitsubishi_Micro %>"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="<%$ Resources:SiteMaster, PLC_Mitsubishi_Micro %>"></asp:Label></a>
                                     <ul class="dropdown-menu">
                                         <li class="list-group-item dropdown clearfix">
                                             <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>Classic </a>
@@ -351,7 +290,8 @@
                                     </ul>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, PLC_Mitsubishi %>"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="<%$ Resources:SiteMaster, PLC_Mitsubishi %>"></asp:Label></a>
                                     <ul class="dropdown-menu">
                                         <li class="list-group-item dropdown clearfix">
                                             <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>Classic </a>
@@ -370,7 +310,8 @@
                                     </ul>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, PLC_Mitsubishi_Modular %>"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="<%$ Resources:SiteMaster, PLC_Mitsubishi_Modular %>"></asp:Label></a>
                                     <ul class="dropdown-menu">
                                         <li class="list-group-item dropdown clearfix">
                                             <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>Classic </a>
@@ -389,7 +330,8 @@
                                     </ul>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Servo_Mitsubishi %>"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Servo_Mitsubishi %>"></asp:Label></a>
                                     <ul class="dropdown-menu">
                                         <li class="list-group-item dropdown clearfix">
                                             <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>Classic </a>
@@ -407,21 +349,24 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, HMI_Mitsubishi %>"></asp:Label></a></li>
-                                <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Motion_Controller_Mitsubishi %>"></asp:Label></a></li>
+                                <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                    <asp:Label runat="server" Text="<%$ Resources:SiteMaster, HMI_Mitsubishi %>"></asp:Label></a></li>
+                                <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                    <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Motion_Controller_Mitsubishi %>"></asp:Label></a></li>
                             </ul>
                         </li>
                         <%--  --%>
                         <%-- ABB Category  --%>
-                         <li class="list-group-item clearfix dropdown">
+                        <li class="list-group-item clearfix dropdown">
                             <a href="shop-product-list.html">
                                 <i class="fa fa-angle-right"></i>
-                               <asp:Label runat="server" Text="ABB"> </asp:Label>
+                                <asp:Label runat="server" Text="ABB"> </asp:Label>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, ABB_boot_software %>"></asp:Label></a>
-                                   <%-- <ul class="dropdown-menu">
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="<%$ Resources:SiteMaster, ABB_boot_software %>"></asp:Label></a>
+                                    <%-- <ul class="dropdown-menu">
                                         <li class="list-group-item dropdown clearfix">
                                             <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>Classic </a>
                                             <ul class="dropdown-menu">
@@ -439,8 +384,9 @@
                                     </ul>--%>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, ABB_inverter %>"></asp:Label></a>
-                                   <%-- <ul class="dropdown-menu">
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="<%$ Resources:SiteMaster, ABB_inverter %>"></asp:Label></a>
+                                    <%-- <ul class="dropdown-menu">
                                         <li class="list-group-item dropdown clearfix">
                                             <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>Classic </a>
                                             <ul class="dropdown-menu">
@@ -458,7 +404,8 @@
                                     </ul>--%>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, ABB_relay_heat %>"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="<%$ Resources:SiteMaster, ABB_relay_heat %>"></asp:Label></a>
                                     <%--<ul class="dropdown-menu">
                                         <li class="list-group-item dropdown clearfix">
                                             <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>Classic </a>
@@ -477,8 +424,9 @@
                                     </ul>--%>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="MCB ABB"></asp:Label></a>
-                                   <%-- <ul class="dropdown-menu">
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="MCB ABB"></asp:Label></a>
+                                    <%-- <ul class="dropdown-menu">
                                         <li class="list-group-item dropdown clearfix">
                                             <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>Classic </a>
                                             <ul class="dropdown-menu">
@@ -496,7 +444,8 @@
                                     </ul>--%>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="MCCB ABB"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="MCCB ABB"></asp:Label></a>
                                     <%--<ul class="dropdown-menu">
                                         <li class="list-group-item dropdown clearfix">
                                             <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>Classic </a>
@@ -518,101 +467,127 @@
                         </li>
                         <%--  --%>
 
-                         <%-- Siemens Category  --%>
-                         <li class="list-group-item clearfix dropdown">
+                        <%-- Siemens Category  --%>
+                        <li class="list-group-item clearfix dropdown">
                             <a href="shop-product-list.html">
                                 <i class="fa fa-angle-right"></i>
-                               <asp:Label runat="server" Text="Siemens"> </asp:Label>
+                                <asp:Label runat="server" Text="Siemens"> </asp:Label>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="PCL Siemens"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="PCL Siemens"></asp:Label></a>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="Switchgear Siemens"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="Switchgear Siemens"></asp:Label></a>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="Power Supply Siemens"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="Power Supply Siemens"></asp:Label></a>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="Sensor Siemens"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="Sensor Siemens"></asp:Label></a>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="HMI Siemens"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="HMI Siemens"></asp:Label></a>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Siemens_inverter %>"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Siemens_inverter %>"></asp:Label></a>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Siemens_boot_software %>"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Siemens_boot_software %>"></asp:Label></a>
                                 </li>
                             </ul>
                         </li>
                         <%--  --%>
 
-                         <%-- Omron Category  --%>
-                         <li class="list-group-item clearfix dropdown">
+                        <%-- Omron Category  --%>
+                        <li class="list-group-item clearfix dropdown">
                             <a href="shop-product-list.html">
                                 <i class="fa fa-angle-right"></i>
-                               <asp:Label runat="server" Text="Omron"> </asp:Label>
+                                <asp:Label runat="server" Text="Omron"> </asp:Label>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="Encoder Omron"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="Encoder Omron"></asp:Label></a>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="PLC Omron"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="PLC Omron"></asp:Label></a>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="Timer Omron"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="Timer Omron"></asp:Label></a>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="Relay Omron"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="Relay Omron"></asp:Label></a>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="HMI Omron"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="HMI Omron"></asp:Label></a>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Omron_travel_switch %>"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Omron_travel_switch %>"></asp:Label></a>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Omron_Temperature_Controller %>"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Omron_Temperature_Controller %>"></asp:Label></a>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="Servo Omron"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="Servo Omron"></asp:Label></a>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Omron_Ultrasound_Sensor %>"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Omron_Ultrasound_Sensor %>"></asp:Label></a>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Omron_pulse_source %>"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Omron_pulse_source %>"></asp:Label></a>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Omron_inverter %>"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Omron_inverter %>"></asp:Label></a>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Omron_Temperature_Controller %>"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Omron_Temperature_Controller %>"></asp:Label></a>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Omron_light_sensor %>"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Omron_light_sensor %>"></asp:Label></a>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Omron_proximity_sensor %>"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Omron_proximity_sensor %>"></asp:Label></a>
                                 </li>
-                             
+
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster,Omron_counter %>"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="<%$ Resources:SiteMaster,Omron_counter %>"></asp:Label></a>
                                 </li>
                                 <li class="list-group-item dropdown clearfix">
-                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Omron_level_sensor %>"></asp:Label></a>
+                                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                                        <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Omron_level_sensor %>"></asp:Label></a>
                                 </li>
                             </ul>
                         </li>
                         <%--  --%>
 
-                        <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i><asp:Label runat="server" Text="<%$ Resources:SiteMaster, programmingTools %>"> </asp:Label></a></li>
-                        <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i><asp:Label runat="server" Text="<%$ Resources:SiteMaster, programmingTools %>"> </asp:Label></a></li>
-                        <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i><asp:Label runat="server" Text="<%$ Resources:SiteMaster, programmingTools %>"> </asp:Label></a></li>
+                        <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                            <asp:Label runat="server" Text="<%$ Resources:SiteMaster, programmingTools %>"> </asp:Label></a></li>
+                        <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                            <asp:Label runat="server" Text="<%$ Resources:SiteMaster, programmingTools %>"> </asp:Label></a></li>
+                        <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                            <asp:Label runat="server" Text="<%$ Resources:SiteMaster, programmingTools %>"> </asp:Label></a></li>
                     </ul>
                 </div>
                 <!-- END SIDEBAR -->
@@ -860,9 +835,9 @@
                 <a href="shop-product-list.html">
                     <img src="assets/pages/img/brands/abb.jpg" height="102" width="169" alt="abb" title="abb"></a>
                 <a href="shop-product-list.html">
-                    <img src="assets/pages/img/brands/lenze.jpg"  height="102" width="169"  alt="lenze" title="lenze"></a>
+                    <img src="assets/pages/img/brands/lenze.jpg" height="102" width="169" alt="lenze" title="lenze"></a>
                 <a href="shop-product-list.html">
-                    <img src="assets/pages/img/brands/omron.jpg"  height="102" width="169" alt="omron" title="omron"></a>
+                    <img src="assets/pages/img/brands/omron.jpg" height="102" width="169" alt="omron" title="omron"></a>
             </div>
         </div>
     </div>

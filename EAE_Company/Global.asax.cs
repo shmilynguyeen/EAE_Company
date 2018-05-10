@@ -2,6 +2,8 @@
 using System.Web;
 using System.Threading;
 using System.Globalization;
+using EAE_Company.Models;
+using System.Collections.Generic;
 
 namespace EAE_Company
 {
@@ -39,6 +41,11 @@ namespace EAE_Company
             //Response.Redirect("~/Home.aspx");
             string language = Thread.CurrentThread.CurrentCulture.Name;
             Session["language"] = language;
+
+            //Load Item List for New Arrivals 
+            Item item = new Item();
+            List<Item> newArrivals = item.getNewArrivalItems();
+            Session["newArrivals"] = newArrivals;
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
