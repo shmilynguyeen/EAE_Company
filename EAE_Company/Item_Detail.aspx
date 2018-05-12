@@ -1,27 +1,38 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site_Left_Menu.master" CodeFile="Item_Detail.aspx.cs" Inherits="shop_item" %>
 
+<%@ Import Namespace="EAE_Company.Models" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-
+    <%
+        // GET ITEM INFO WITH ITEM COD  
+        string itemCODE = Request.QueryString["code"];
+        Item item = new Item();
+        item = item.loadINFOByCode(itemCODE);
+    %>
     <!-- BEGIN CONTENT -->
     <div class="col-md-9 col-sm-7">
         <div class="product-page">
             <div class="row">
                 <div class="col-md-6 col-sm-6">
                     <div class="product-main-image">
-                        <img src="assets/pages/img/products/model7.jpg" alt="Raspberry Pi to Arduino Shields Connection Bridge" class="img-responsive" data-bigimgsrc="assets/pages/img/products/model7.jpg">
+                   <img src='<%= item.getImageList()[0] %>' alt=<%= item.getDescription() %> class="img-responsive" data-bigimgsrc='<%= item.getImageList()[0] %>'>
                     </div>
+                    <%-- ITEM IMAGES --%>
                     <div class="product-other-images">
-                        <a href="assets/pages/img/products/model3.jpg" class="fancybox-button" rel="photos-lib">
-                            <img alt="Berry Lace Dress" src="assets/pages/img/products/model3.jpg"></a>
-                        <a href="assets/pages/img/products/model4.jpg" class="fancybox-button" rel="photos-lib">
-                            <img alt="Berry Lace Dress" src="assets/pages/img/products/model4.jpg"></a>
-                        <a href="assets/pages/img/products/model5.jpg" class="fancybox-button" rel="photos-lib">
-                            <img alt="Berry Lace Dress" src="assets/pages/img/products/model5.jpg"></a>
+                        <% 
+                            List<String> imageList = item.getImageList();
+                            foreach (String url in imageList)
+                            {
+                        %>
+                        <a href='<%= url %>' class="fancybox-button" rel="photos-lib">
+                            <img alt="<%= item.getName() %>" src='<%= url %>'></a>
+                        <%    
+                            }
+                        %>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6">
-                    <h1>CoolRaspberry Pi to Arduino Shields Connection Bridge</h1>
+                    <h1><%= item.getName() %></h1>
                     <div class="price-availability-block clearfix">
                         <div class="price">
                             <strong><span>$</span>47.00</strong>
@@ -33,8 +44,7 @@
                     </div>
                     <div class="description">
                         <p>
-                            The Raspberry Pi to Arduino shields connection bridge allows to use any shield, board or module designed for Arduino in Raspberry Pi.
-Additionally, we have developed the arduPi library to use the Arduino code in Raspberry Pi.
+                              <%= item.getDescription() %>
                         </p>
                     </div>
                     <div class="product-page-options">
@@ -84,8 +94,10 @@ Additionally, we have developed the arduPi library to use the Arduino code in Ra
                     </ul>
                     <div id="myTabContent" class="tab-content">
                         <div class="tab-pane fade" id="Description">
-                            <p>The Raspberry Pi to Arduino shields connection bridge allows to use any shield, board or module designed for Arduino in Raspberry Pi.
-Additionally, we have developed the arduPi library to use the Arduino code in Raspberry Pi. </p>
+                            <p>
+                                The Raspberry Pi to Arduino shields connection bridge allows to use any shield, board or module designed for Arduino in Raspberry Pi.
+Additionally, we have developed the arduPi library to use the Arduino code in Raspberry Pi.
+                            </p>
                         </div>
                         <div class="tab-pane fade" id="Information">
                             <table class="datasheet">

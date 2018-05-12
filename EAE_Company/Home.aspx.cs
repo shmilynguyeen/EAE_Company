@@ -11,4 +11,9 @@ public partial class _Default : Page
     {
 
     }
+
+    protected void fastView(object sender, EventArgs e)
+    {
+
+    }
 }

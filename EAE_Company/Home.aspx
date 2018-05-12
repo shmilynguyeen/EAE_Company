@@ -119,8 +119,11 @@
                         <!-- BEGIN NEW ARRIVAL ITEM LIST -->
                         <% List<Item> newArrivals = (List<Item>)Session["newArrivals"];
                             string language = Session["language"].ToString().Trim();
+
                             foreach (Item item in newArrivals)
                             {
+                                // PATH TO VIEW ITEM DETAIL
+                                string url = "Item_Detail.aspx?code=" + item.getItemCode();
                                 // UPDATE LANGUAGE FOR THIS SESSION 
                                 item.setLanguage(language);
                         %>
@@ -130,7 +133,8 @@
                                     <img src="<%=item.getFirstImage() %>" class="img-responsive" alt="Berry Lace Dress">
                                     <div>
                                         <a href="<%=item.getFirstImage() %>" class="btn btn-default fancybox-button">Zoom</a>
-                                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                                     <%--   <asp:Button  runat="server"  class="btn btn-default fancybox-fast-view" Text="View" OnClick="fastView" /> --%>
+                                        <a href='<%= url%>' class="btn btn-default fancybox-button">View</a>
                                     </div>
                                 </div>
                                 <h3><a href="shop-item.html"><%= item.getName() %></a></h3>
