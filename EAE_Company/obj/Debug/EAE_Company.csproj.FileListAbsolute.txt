@@ -161,6 +161,5 @@ E:\Source\Git\EAE_Companies\EAE_Company\bin\Microsoft.Owin.Security.Google.xml
 E:\Source\Git\EAE_Companies\EAE_Company\bin\Microsoft.Owin.Security.Twitter.xml
 E:\Source\Git\EAE_Companies\EAE_Company\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 E:\Source\Git\EAE_Companies\EAE_Company\bin\Microsoft.Owin.Security.OAuth.xml
-E:\Source\Git\EAE_Companies\EAE_Company\obj\Debug\EAE_Company.csprojResolveAssemblyReference.cache
 E:\Source\Git\EAE_Companies\EAE_Company\obj\Debug\EAE_Company.dll
 E:\Source\Git\EAE_Companies\EAE_Company\obj\Debug\EAE_Company.pdb

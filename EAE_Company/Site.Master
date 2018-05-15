@@ -92,7 +92,7 @@
                     <!-- BEGIN TOP BAR LEFT PART -->
                     <div class="col-md-6 col-sm-6 additional-shop-info">
                         <ul class="list-unstyled list-inline">
-                            <li><i class="fa fa-phone"></i><span>+84 907818285</span></li>
+                            <li><i class="fa fa-phone"></i><span>+84 903 468 576</span></li>
                             <li><span>
                                 <%--<asp:Label runat="server" ID="lb" Text="<%$ Resources:SiteMaster, same %>"></asp:Label>--%></span></li>
                             <!-- BEGIN CURRENCIES -->
@@ -435,13 +435,17 @@
                             <span class="sep"></span>
                             <i class="fa fa-search search-btn"></i>
                             <div class="search-box">
-                                <form action="#">
+                                <form  action="#">
                                     <div class="input-group">
                                         <input type="text" placeholder="Search" class="form-control">
                                         <span class="input-group-btn">
                                             <button class="btn btn-primary" type="submit">Search</button>
                                         </span>
                                     </div>
+
+                                    <%-- SEARCH ENGIEN --%>
+                                   
+                                     <%-- FINISH SEACH ENGIEN --%>
                                 </form>
                             </div>
                         </li>
@@ -514,7 +518,9 @@
                                 <address class="margin-bottom-40">
                                     589/21,Ha Noi Street, Linh Trung<br>
                                     Thu Duc, HCM<br>
-                                    Phone: 0903 468 576 / 0932 315 279<br>
+                                    Phone: 0903 468 576 <br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0932 315 279<br  />
+
                                     Fax: <br>
                                     Email: <a href="#">eae.tech.company@gmail.com</a><br>
                                     Skype: <a href="#"></a>

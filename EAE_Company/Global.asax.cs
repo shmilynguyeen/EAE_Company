@@ -42,10 +42,14 @@ namespace EAE_Company
             string language = Thread.CurrentThread.CurrentCulture.Name;
             Session["language"] = language;
 
-            //Load Item List for New Arrivals 
+            //Load Item List for home pages
             Item item = new Item();
-            List<Item> newArrivals = item.getNewArrivalItems();
+            List<Item> newArrivals = item.getItems(0);
+            List<Item> threeItems = item.getItems(3);
+            List<Item> twoItems = item.getItems(2);
             Session["newArrivals"] = newArrivals;
+            Session["threeItems"] = threeItems;
+            Session["twoItems"] = twoItems;
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)

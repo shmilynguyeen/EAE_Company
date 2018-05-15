@@ -52,5 +52,10 @@ namespace EAE_Company
             Response.Redirect(Page.Request.Url.ToString());
 
         }
+
+        protected void text_search_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

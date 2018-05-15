@@ -1,7 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site_Left_Menu.master" CodeFile="Item_Detail.aspx.cs" Inherits="shop_item" %>
-
+﻿<%@ Page Language="C#"  MasterPageFile="~/Site_Left_Menu.master" AutoEventWireup="true"  CodeBehind="Details.aspx.cs" Inherits="EAE_Company.Details" %>
 <%@ Import Namespace="EAE_Company.Models" %>
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+<asp:content id="BodyContent" contentplaceholderid="MainContent" runat="server">
 
     <%
         // GET ITEM INFO WITH ITEM COD  
@@ -47,7 +46,7 @@
                               <%= item.getDescription() %>
                         </p>
                     </div>
-                    <div class="product-page-options">
+                   <%-- <div class="product-page-options">
                         <div class="pull-left">
                             <label class="control-label">Size:</label>
                             <select class="form-control input-sm">
@@ -64,13 +63,13 @@
                                 <option>Black</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="product-page-cart">
+                    </div>--%>
+                  <%--  <div class="product-page-cart">
                         <div class="product-quantity">
                             <input id="product-quantity" type="text" value="1" readonly class="form-control input-sm">
                         </div>
-                        <button class="btn btn-primary" type="submit">Add to cart</button>
-                    </div>
+                        <asp:Button runat="server" OnClick="Unnamed_Click1"  class="btn btn-primary" Text="Add to cart"/>
+                    </div>--%>
                     <div class="review">
                         <input type="range" value="4" step="0.25" id="backing4">
                         <div class="rateit" data-rateit-backingfld="#backing4" data-rateit-resetable="false" data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5">
@@ -95,8 +94,7 @@
                     <div id="myTabContent" class="tab-content">
                         <div class="tab-pane fade" id="Description">
                             <p>
-                                The Raspberry Pi to Arduino shields connection bridge allows to use any shield, board or module designed for Arduino in Raspberry Pi.
-Additionally, we have developed the arduPi library to use the Arduino code in Raspberry Pi.
+                                <%= item.getDescription() %>
                             </p>
                         </div>
                         <div class="tab-pane fade" id="Information">
@@ -150,19 +148,19 @@ Additionally, we have developed the arduPi library to use the Arduino code in Ra
                             </div>
 
                             <!-- BEGIN FORM-->
-                            <form action="#" class="reviews-form" role="form">
+                            <div class="reviews-form">
                                 <h2>Write a review</h2>
                                 <div class="form-group">
                                     <label for="name">Name <span class="require">*</span></label>
-                                    <input type="text" class="form-control" id="name">
+                                    <asp:TextBox runat="server" type="text" class="form-control" ID="comment_name"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="text" class="form-control" id="email">
+                                    <asp:TextBox runat="server" TextMode="Email" class="form-control" id="comment_email"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label for="review">Review <span class="require">*</span></label>
-                                    <textarea class="form-control" rows="8" id="review"></textarea>
+                                    <asp:TextBox runat="server" TextMode="MultiLine" class="form-control" rows="8" ID="comment_review"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Rating</label>
@@ -171,9 +169,10 @@ Additionally, we have developed the arduPi library to use the Arduino code in Ra
                                     </div>
                                 </div>
                                 <div class="padding-top-20">
-                                    <button type="submit" class="btn btn-primary">Send</button>
-                                </div>
-                            </form>
+                               <asp:Button runat="server" Text="Send"  ID="send_comment"  class="btn btn-primary" OnClick="send_comment_Click"/>
+                                     </div>
+                            </div>
+
                             <!-- END FORM-->
                         </div>
                     </div>
@@ -350,10 +349,5 @@ Additionally, we have developed the arduPi library to use the Arduino code in Ra
         </div>
     </div>
     <!-- END STEPS -->
+</asp:content>
 
-
-
-
-
-
-</asp:Content>

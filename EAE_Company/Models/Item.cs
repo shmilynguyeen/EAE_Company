@@ -37,20 +37,23 @@ namespace EAE_Company.Models
             this.itemDescriptionVi = desVi;
             this.imageList = imgs;
         }
-        // GET NEW ARRIVAL ITEMS  
-        public List<Item> getNewArrivalItems()
+        // GET  ITEMS  
+        // 0 - New Arrival
+        // 3 - Three Items
+        // 2 - Two Items
+        public List<Item> getItems(int item_group)
         {
             List<Item> listItem = new List<Item>();
             string sQuery = "";
             try
             {
-                sQuery = @" SELECT i.ID , i.Item_Code, i.Item_Name_Vi, i.Item_Name_Eng, i.Item_Description_Vi , i.Item_Description_Eng, img.Image_URL from item i 
-                           left join category c on 
-                            i.ID = c.ID  
+                sQuery = @" SELECT i.ID , i.Item_Code, i.Item_Name_Vi, i.Item_Name_Eng, 
+                            i.Item_Description_Vi , i.Item_Description_Eng, img.Image_URL from item i 
                             left join images img on 
-                            img.Item_ID = i.ID ";
+                            img.Item_ID = i.ID 
+							where i.Is_Active ='1' and Item_Group={0}";
 
-                sQuery = string.Format(sQuery);
+                sQuery = string.Format(sQuery, item_group);
                 DataSet ds = SqlHelper.ExecuteDataset(ClsCommons.connectionStr, CommandType.Text, sQuery);
                 if (ds.Tables.Count > 0)
                 {
