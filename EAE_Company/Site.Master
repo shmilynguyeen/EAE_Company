@@ -435,11 +435,11 @@
                             <span class="sep"></span>
                             <i class="fa fa-search search-btn"></i>
                             <div class="search-box">
-                                <form  action="#">
+                                <form >
                                     <div class="input-group">
-                                        <input type="text" placeholder="Search" class="form-control">
+                                        <asp:TextBox runat="server" ID="txt_search" placeholder="Search" class="form-control"></asp:TextBox>
                                         <span class="input-group-btn">
-                                            <button class="btn btn-primary" type="submit">Search</button>
+                                            <asp:Button runat="server" class="btn btn-primary" OnClick="btn_Search_Click" ID="btn_Search" Text="Search"/>
                                         </span>
                                     </div>
 

@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="false" MasterPageFile="~/Site_Left_Menu.master" CodeFile="ProductList.aspx.cs" Inherits="ProductList" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site_Left_Menu.master" AutoEventWireup="true" CodeBehind="ProductList.aspx.cs" Inherits="EAE_Company.ProductList" %>
+<%@ Import Namespace="EAE_Company.Models" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="main">
@@ -40,156 +40,40 @@
                 </div>
                 <!-- BEGIN PRODUCT LIST -->
                 <div class="row product-list">
+                    <%
+                        String language = Session["language"].ToString();
+                        String key_search = Request.QueryString["keySearch"];
+                        Item item = new Item();
+                        List<Item> list_item = new List<Item>();
+                        list_item = item.searchItem(key_search, language);
+
+                        foreach (Item i in list_item)
+                        {
+                            // PATH TO VIEW ITEM DETAIL
+                            string url = "Details.aspx?code=" + i.getItemCode();
+                            // UPDATE LANGUAGE FOR THIS SESSION 
+                            i.setLanguage(language);
+                    %>
+
                     <!-- PRODUCT ITEM START -->
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="product-item">
                             <div class="pi-img-wrapper">
-                                <img src="assets/pages/img/products/model1.jpg" class="img-responsive" alt="Berry Lace Dress">
+                                <img src='<%= i.getFirstImage() %>' class="img-responsive" alt=<%= i.getName() %> />
                                 <div>
-                                    <a href="assets/pages/img/products/model1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                                    <a href='<%= i.getFirstImage() %>' class="btn btn-default fancybox-button">Zoom</a>
+                                    <a href='<%= url %>' class="btn btn-default fancybox-fast-view">View</a>
                                 </div>
                             </div>
-                            <h3><a href="shop-item.html">Berry Lace Dress Berry Lace Dress</a></h3>
+                            <h3><a href='<%= url %>'><%= i.getName() %></a></h3>
                             <div class="pi-price">$29.00</div>
                             <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
                         </div>
                     </div>
+
                     <!-- PRODUCT ITEM END -->
-                    <!-- PRODUCT ITEM START -->
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="product-item">
-                            <div class="pi-img-wrapper">
-                                <img src="assets/pages/img/products/model2.jpg" class="img-responsive" alt="Berry Lace Dress">
-                                <div>
-                                    <a href="assets/pages/img/products/model2.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                </div>
-                            </div>
-                            <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                            <div class="pi-price">$29.00</div>
-                            <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                        </div>
-                    </div>
-                    <!-- PRODUCT ITEM END -->
-                    <!-- PRODUCT ITEM START -->
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="product-item">
-                            <div class="pi-img-wrapper">
-                                <img src="assets/pages/img/products/model2.jpg" class="img-responsive" alt="Berry Lace Dress">
-                                <div>
-                                    <a href="assets/pages/img/products/model6.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                </div>
-                            </div>
-                            <h3><a href="shop-item.html">Berry Lace Dress 2</a></h3>
-                            <div class="pi-price">$29.00</div>
-                            <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                        </div>
-                    </div>
-                    <!-- PRODUCT ITEM END -->
-                </div>
-                <div class="row product-list">
-                    <!-- PRODUCT ITEM START -->
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="product-item">
-                            <div class="pi-img-wrapper">
-                                <img src="assets/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress">
-                                <div>
-                                    <a href="assets/pages/img/products/model4.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                </div>
-                            </div>
-                            <h3><a href="shop-item.html">Berry Lace Dress Berry Lace Dress</a></h3>
-                            <div class="pi-price">$29.00</div>
-                            <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                        </div>
-                    </div>
-                    <!-- PRODUCT ITEM END -->
-                    <!-- PRODUCT ITEM START -->
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="product-item">
-                            <div class="pi-img-wrapper">
-                                <img src="assets/pages/img/products/model5.jpg" class="img-responsive" alt="Berry Lace Dress">
-                                <div>
-                                    <a href="assets/pages/img/products/model5.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                </div>
-                            </div>
-                            <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                            <div class="pi-price">$29.00</div>
-                            <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                            <div class="sticker sticker-new"></div>
-                        </div>
-                    </div>
-                    <!-- PRODUCT ITEM END -->
-                    <!-- PRODUCT ITEM START -->
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="product-item">
-                            <div class="pi-img-wrapper">
-                                <img src="assets/pages/img/products/model3.jpg" class="img-responsive" alt="Berry Lace Dress">
-                                <div>
-                                    <a href="assets/pages/img/products/model3.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                </div>
-                            </div>
-                            <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                            <div class="pi-price">$29.00</div>
-                            <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                        </div>
-                    </div>
-                    <!-- PRODUCT ITEM END -->
-                </div>
-                <div class="row product-list">
-                    <!-- PRODUCT ITEM START -->
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="product-item">
-                            <div class="pi-img-wrapper">
-                                <img src="assets/pages/img/products/model7.jpg" class="img-responsive" alt="Berry Lace Dress">
-                                <div>
-                                    <a href="assets/pages/img/products/model7.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                </div>
-                            </div>
-                            <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                            <div class="pi-price">$29.00</div>
-                            <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                        </div>
-                    </div>
-                    <!-- PRODUCT ITEM END -->
-                    <!-- PRODUCT ITEM START -->
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="product-item">
-                            <div class="pi-img-wrapper">
-                                <img src="assets/pages/img/products/model1.jpg" class="img-responsive" alt="Berry Lace Dress">
-                                <div>
-                                    <a href="assets/pages/img/products/model1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                </div>
-                            </div>
-                            <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                            <div class="pi-price">$29.00</div>
-                            <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                        </div>
-                    </div>
-                    <!-- PRODUCT ITEM END -->
-                    <!-- PRODUCT ITEM START -->
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="product-item">
-                            <div class="pi-img-wrapper">
-                                <img src="assets/pages/img/products/model2.jpg" class="img-responsive" alt="Berry Lace Dress">
-                                <div>
-                                    <a href="assets/pages/img/products/model2.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                </div>
-                            </div>
-                            <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                            <div class="pi-price">$29.00</div>
-                            <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                            <div class="sticker sticker-sale"></div>
-                        </div>
-                    </div>
-                    <!-- PRODUCT ITEM END -->
+                    <%} %>
+                   
                 </div>
                 <!-- END PRODUCT LIST -->
 

@@ -461,8 +461,8 @@
             <div class="main">
                 <div class="container">
                     <ul class="breadcrumb">
-                        <li><a href="homes.aspx">Home</a></li>
-                        <li><a href="">Store</a></li>
+                        <li><a href="home.aspx">Home</a></li>
+                        <li><a href="#">Store</a></li>
                         <li class="active">Cool green dress with red bell</li>
                     </ul>
                     <!-- BEGIN SIDEBAR & CONTENT -->
@@ -957,16 +957,18 @@
                             </div>
                             <!-- END TWITTER BLOCK -->
 
-                            <!-- BEGIN BOTTOM CONTACTS -->
+                           <!-- BEGIN BOTTOM CONTACTS -->
                             <div class="col-md-3 col-sm-6 pre-footer-col">
                                 <h2>Our Contacts</h2>
                                 <address class="margin-bottom-40">
-                                    589/21,Ha Noi Highway, Linh Trung<br>
+                                    589/21,Ha Noi Street, Linh Trung<br>
                                     Thu Duc, HCM<br>
-                                    Phone: 0907 81 82 85<br>
-                                    Fax: 123 456 7891<br>
-                                    Email: <a href="#">abc@eae.com.vn</a><br>
-                                    Skype: <a href="#">EAE</a>
+                                    Phone: 0903 468 576 <br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0932 315 279<br  />
+
+                                    Fax: <br>
+                                    Email: <a href="#">eae.tech.company@gmail.com</a><br>
+                                    Skype: <a href="#"></a>
                                 </address>
                             </div>
                             <!-- END BOTTOM CONTACTS -->
@@ -987,7 +989,7 @@
                                 </ul>
                             </div>
                             <!-- END SOCIAL ICONS -->
-                            <!-- BEGIN NEWLETTER -->
+                           <%-- <!-- BEGIN NEWLETTER -->
                             <div class="col-md-6 col-sm-6">
                                 <div class="pre-footer-subscribe-box pull-right">
                                     <h2>Newsletter</h2>
@@ -1001,7 +1003,7 @@
                                     </form>
                                 </div>
                             </div>
-                            <!-- END NEWLETTER -->
+                            <!-- END NEWLETTER -->--%>
                         </div>
                     </div>
                 </div>

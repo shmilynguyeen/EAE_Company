@@ -31,6 +31,24 @@ namespace EAE_Company {
         protected global::System.Web.UI.WebControls.DropDownList dllLanguage;
         
         /// <summary>
+        /// txt_search control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_search;
+        
+        /// <summary>
+        /// btn_Search control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Search;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

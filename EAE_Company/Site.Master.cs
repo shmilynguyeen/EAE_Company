@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EAE_Company.Models;
+using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Threading;
 using System.Web;
@@ -55,6 +57,13 @@ namespace EAE_Company
 
         protected void text_search_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        protected void btn_Search_Click(object sender, EventArgs e)
+        {
+            String key_search = txt_search.Text;
+            Response.Redirect("ProductList.aspx?keySearch="+  key_search);
 
         }
     }

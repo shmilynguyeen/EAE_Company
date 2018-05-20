@@ -190,5 +190,63 @@ namespace EAE_Company.Models
             }
             return li;
         }
+
+
+        // Method for search item
+        public List<Item> searchItem(String text , String language)
+        {
+            List<Item> listItem = new List<Item>();
+            string sQuery = "";
+            try
+            {
+                if (language.Equals("en-US"))
+                {
+                    sQuery = @" SELECT i.ID , i.Item_Code, i.Item_Name_Vi, i.Item_Name_Eng, 
+                            i.Item_Description_Vi , i.Item_Description_Eng, img.Image_URL from item i 
+                            left join images img on 
+                            img.Item_ID = i.ID 
+							where i.Is_Active ='1' and i.Item_Name_Eng like N'%{0}%'";
+
+                } else
+                {
+                    sQuery = @" SELECT i.ID , i.Item_Code, i.Item_Name_Vi, i.Item_Name_Eng, 
+                            i.Item_Description_Vi , i.Item_Description_Eng, img.Image_URL from item i 
+                            left join images img on 
+                            img.Item_ID = i.ID 
+							where i.Is_Active ='1' and i.Item_Name_Vi like N'%{0}%'";
+                }
+                
+
+                sQuery = string.Format(sQuery, text);
+                DataSet ds = SqlHelper.ExecuteDataset(ClsCommons.connectionStr, CommandType.Text, sQuery);
+                if (ds.Tables.Count > 0)
+                {
+                    int count = 0;
+                    while (count < ds.Tables[0].Rows.Count)
+                    {
+                        DataRow r = ds.Tables[0].Rows[count];
+                        Item item = new Item();
+                        item.itemNameVi = r["Item_Name_Vi"].ToString().Trim();
+                        item.itemName = r["Item_Name_Eng"].ToString().Trim();
+                        item.itemDescription = r["Item_Description_Eng"].ToString().Trim();
+                        item.itemDescriptionVi = r["Item_Description_Vi"].ToString().Trim();
+                        item.itemCode = r["ID"].ToString();
+                        string img = r["Image_URL"].ToString().TrimEnd().TrimStart();
+                        List<string> imgs = new List<string>();
+                        imgs.Add(img);
+                        item.imageList = imgs;
+
+                        listItem.Add(item);
+                        count++;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error("ERROR at : " + ex);
+
+            }
+            return listItem;
+        }
     }
 }
