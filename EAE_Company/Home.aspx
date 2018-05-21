@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Homes.aspx.cs" Inherits="EAE_Company.Homes" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="EAE_Company.Home" %>
 
 <%@ Import Namespace="EAE_Company.Models" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -130,14 +130,14 @@
                         <div>
                             <div class="product-item">
                                 <div class="pi-img-wrapper">
-                                    <img src="<%=item.getFirstImage() %>" class="img-responsive" alt="Berry Lace Dress">
+                                    <img src='<%=item.getFirstImage() %>' class="img-responsive" alt=<%= item.getName() %> />
                                     <div>
                                         <a href="<%=item.getFirstImage() %>" class="btn btn-default fancybox-button">Zoom</a>
                                      <%--   <asp:Button  runat="server"  class="btn btn-default fancybox-fast-view" Text="View" OnClick="fastView" /> --%>
                                         <a href='<%= url%>' class="btn btn-default fancybox-button">View</a>
                                     </div>
                                 </div>
-                                <h3><a href="shop-item.html"><%= item.getName() %></a></h3>
+                                <h3><a href='<%= url %>'><%= item.getName() %></a></h3>
                                 <div class="pi-price">$29.00</div>
                                 <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
                                 <div class="sticker sticker-sale"></div>

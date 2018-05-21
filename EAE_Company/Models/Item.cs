@@ -4,6 +4,8 @@ using System.Data;
 using log4net;
 using Microsoft.ApplicationBlocks.Data;
 using EAE_Company.Commons;
+using System.Web;
+using System.Web.SessionState;
 
 namespace EAE_Company.Models
 {
@@ -22,6 +24,8 @@ namespace EAE_Company.Models
         string itemDescription { get; set; }
         string itemName { get; set; }
         List<string> imageList { get; set; }
+        String language { get; set; }
+
 
 
         public Item()
@@ -93,7 +97,11 @@ namespace EAE_Company.Models
 
         public string getName()
         {
-            if (LANGUAGE.Equals("en-US"))
+           
+                this.language = HttpContext.Current.Session["language"].ToString().Trim();
+             
+
+            if (this.language.Equals("en-US") && null != this.language)
             {
                 return this.itemName;
             }
@@ -193,7 +201,7 @@ namespace EAE_Company.Models
 
 
         // Method for search item
-        public List<Item> searchItem(String text , String language)
+        public List<Item> searchItem(String text, String language)
         {
             List<Item> listItem = new List<Item>();
             string sQuery = "";
@@ -207,7 +215,8 @@ namespace EAE_Company.Models
                             img.Item_ID = i.ID 
 							where i.Is_Active ='1' and i.Item_Name_Eng like N'%{0}%'";
 
-                } else
+                }
+                else
                 {
                     sQuery = @" SELECT i.ID , i.Item_Code, i.Item_Name_Vi, i.Item_Name_Eng, 
                             i.Item_Description_Vi , i.Item_Description_Eng, img.Image_URL from item i 
@@ -215,7 +224,7 @@ namespace EAE_Company.Models
                             img.Item_ID = i.ID 
 							where i.Is_Active ='1' and i.Item_Name_Vi like N'%{0}%'";
                 }
-                
+
 
                 sQuery = string.Format(sQuery, text);
                 DataSet ds = SqlHelper.ExecuteDataset(ClsCommons.connectionStr, CommandType.Text, sQuery);

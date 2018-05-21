@@ -51,6 +51,8 @@ namespace EAE_Company
             String a = Request.Path;
             // Server.Transfer(Request.Path);
             string language = Thread.CurrentThread.CurrentCulture.Name;
+            // Update session language
+            Session["language"] = language;
             Response.Redirect(Page.Request.Url.ToString());
 
         }

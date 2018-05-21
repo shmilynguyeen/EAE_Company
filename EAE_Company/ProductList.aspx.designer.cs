@@ -11,7 +11,7 @@ namespace EAE_Company
 {
 
 
-    public partial class Homes
+    public partial class ProductList
     {
     }
 }

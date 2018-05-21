@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site_Left_Menu.master.cs" Inherits="Site_Left_Menu" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site_Left_Menu.master.cs" Inherits="EAE_Company.Site_Left_Menu" %>
 
 <!DOCTYPE html>
 
@@ -103,13 +103,10 @@
                             <!-- END CURRENCIES -->
                             <!-- BEGIN LANGS -->
                             <li class="langs-block">
-                                <a href="javascript:void(0);" class="current">English </a>
-                                <div class="langs-block-others-wrapper">
-                                    <div class="langs-block-others">
-                                        <a href="javascript:void(0);">VietNamese</a>
-
-                                    </div>
-                                </div>
+                                  <asp:DropDownList ID="dllLanguage" runat="server"  AutoPostBack="True" OnSelectedIndexChanged="changeLanguage">
+                                    <asp:ListItem Value="en-US">English (US)</asp:ListItem>
+                                    <asp:ListItem Value="vi">VietNamese</asp:ListItem>
+                                </asp:DropDownList>
                             </li>
                             <!-- END LANGS -->
                         </ul>
@@ -437,9 +434,9 @@
                             <div class="search-box">
                                 <form action="#">
                                     <div class="input-group">
-                                        <input type="text" placeholder="Search" class="form-control">
+                                        <asp:TextBox runat="server" ID="txt_search" placeholder="Search" class="form-control"></asp:TextBox>
                                         <span class="input-group-btn">
-                                            <button class="btn btn-primary" type="submit">Search</button>
+                                              <asp:Button runat="server" class="btn btn-primary" OnClick="btn_Search_Click" ID="btn_Search" Text="Search"/>
                                         </span>
                                     </div>
                                 </form>
