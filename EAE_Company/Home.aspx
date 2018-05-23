@@ -699,29 +699,29 @@
         <div class="container">
             <div class="owl-carousel owl-carousel6-brands">
                 <a href="shop-product-list.html">
-                    <img src="assets/pages/img/brands/honeywell.jpg" height="102" width="169" alt="canon" title="canon"></a>
+                    <img src="assets/pages/img/brands/honeywell.jpg" style="height:102px; width:169px" alt="canon" title="canon"></a>
                 <a href="shop-product-list.html">
-                    <img src="assets/pages/img/brands/abb.jpg" alt="abb" height="102" width="169" title="abb"></a>
+                    <img src="assets/pages/img/brands/abb.jpg" alt="abb" style="height:102px; width:169px" title="abb"></a>
+               <%-- <a href="shop-product-list.html">
+                    <img src="assets/pages/img/brands/honeywell.jpg" style="height:102px; width:169px" alt="honeywell" title="honeywell"></a>--%>
                 <a href="shop-product-list.html">
-                    <img src="assets/pages/img/brands/honeywell.jpg" height="102" width="169" alt="honeywell" title="honeywell"></a>
+                    <img src="assets/pages/img/brands/lenze.jpg" style="height:102px; width:169px" alt="lenze" title="lenze"></a>
                 <a href="shop-product-list.html">
-                    <img src="assets/pages/img/brands/lenze.jpg" height="102" width="169" alt="lenze" title="lenze"></a>
+                    <img src="assets/pages/img/brands/mitsubishi.jpg" style="height:102px; width:169px" alt="mitsubishi" title="mitsubishi"></a>
+                 <a href="shop-product-list.html">
+                    <img src="assets/pages/img/brands/omron.jpg" style="height:102px; width:169px" alt="omron" title="omron"></a>
                 <a href="shop-product-list.html">
-                    <img src="assets/pages/img/brands/mitsubishi.jpg" height="102" width="169" alt="mitsubishi" title="mitsubishi"></a>
+                    <img src="assets/pages/img/brands/honeywell.jpg" style="height:102px; width:169px" alt="canon" title="canon"></a>
                 <a href="shop-product-list.html">
-                    <img src="assets/pages/img/brands/lenze.jpg" height="102" width="169" alt="zara" title="zara"></a>
+                    <img src="assets/pages/img/brands/omron.jpg" style="height:102px; width:169px" alt="omron" title="omron"></a>
+               <%-- <a href="shop-product-list.html">
+                    <img src="assets/pages/img/brands/yaskawa.jpg" style="height:102px; width:169px" alt="yaskawa" title="yaskawa"></a>--%>
                 <a href="shop-product-list.html">
-                    <img src="assets/pages/img/brands/honeywell.jpg" height="102" width="169" alt="canon" title="canon"></a>
+                    <img src="assets/pages/img/brands/abb.jpg" style="height:102px; width:169px" alt="abb" title="abb"></a>
                 <a href="shop-product-list.html">
-                    <img src="assets/pages/img/brands/omron.jpg" height="102" width="169" alt="omron" title="omron"></a>
+                    <img src="assets/pages/img/brands/lenze.jpg" style="height:102px; width:169px" alt="lenze" title="lenze"></a>
                 <a href="shop-product-list.html">
-                    <img src="assets/pages/img/brands/yaskawa.jpg" height="102" width="169" alt="yaskawa" title="yaskawa"></a>
-                <a href="shop-product-list.html">
-                    <img src="assets/pages/img/brands/abb.jpg" height="102" width="169" alt="abb" title="abb"></a>
-                <a href="shop-product-list.html">
-                    <img src="assets/pages/img/brands/lenze.jpg" height="102" width="169" alt="lenze" title="lenze"></a>
-                <a href="shop-product-list.html">
-                    <img src="assets/pages/img/brands/omron.jpg" height="102" width="169" alt="omron" title="omron"></a>
+                    <img src="assets/pages/img/brands/omron.jpg" style="height:102px; width:169px" alt="omron" title="omron"></a>
             </div>
         </div>
     </div>
