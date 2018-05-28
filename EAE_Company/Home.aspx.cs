@@ -11,7 +11,10 @@ namespace EAE_Company
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            { //do something }
 
+            }
         }
         protected void fastView(object sender, EventArgs e)
         {

@@ -19,7 +19,7 @@ namespace Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option or rebuild the Visual Studio project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class SiteMaster {
@@ -88,6 +88,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add To Cart.
+        /// </summary>
+        internal static string addToCart {
+            get {
+                return ResourceManager.GetString("addToCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Capacitor.
         /// </summary>
         internal static string capacitor {
@@ -102,6 +111,15 @@ namespace Resources {
         internal static string checkout {
             get {
                 return ResourceManager.GetString("checkout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Descrtiption .
+        /// </summary>
+        internal static string description {
+            get {
+                return ResourceManager.GetString("description", resourceCulture);
             }
         }
         
@@ -138,6 +156,15 @@ namespace Resources {
         internal static string industrialElectronics {
             get {
                 return ResourceManager.GetString("industrialElectronics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Infomation.
+        /// </summary>
+        internal static string infomation {
+            get {
+                return ResourceManager.GetString("infomation", resourceCulture);
             }
         }
         
@@ -205,6 +232,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Most popular products.
+        /// </summary>
+        internal static string mostPopularProduct {
+            get {
+                return ResourceManager.GetString("mostPopularProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Motion Controller Mitsubishi.
         /// </summary>
         internal static string Motion_Controller_Mitsubishi {
@@ -237,6 +273,15 @@ namespace Resources {
         internal static string newArrival {
             get {
                 return ResourceManager.GetString("newArrival", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Arrivals.
+        /// </summary>
+        internal static string newArrivals {
+            get {
+                return ResourceManager.GetString("newArrivals", resourceCulture);
             }
         }
         
@@ -349,11 +394,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contact.
+        /// </summary>
+        internal static string price {
+            get {
+                return ResourceManager.GetString("price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Programming Tools.
         /// </summary>
         internal static string programmingTools {
             get {
                 return ResourceManager.GetString("programmingTools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reviews.
+        /// </summary>
+        internal static string review {
+            get {
+                return ResourceManager.GetString("review", resourceCulture);
             }
         }
         
@@ -426,6 +489,24 @@ namespace Resources {
         internal static string textileEquipment {
             get {
                 return ResourceManager.GetString("textileEquipment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Three Items.
+        /// </summary>
+        internal static string threeItems {
+            get {
+                return ResourceManager.GetString("threeItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Two Items.
+        /// </summary>
+        internal static string twoItems {
+            get {
+                return ResourceManager.GetString("twoItems", resourceCulture);
             }
         }
     }

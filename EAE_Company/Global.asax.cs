@@ -28,8 +28,8 @@ namespace EAE_Company
             }
             else
             {
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("vi");
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("vi");
 
             }
             string language = Thread.CurrentThread.CurrentCulture.Name;

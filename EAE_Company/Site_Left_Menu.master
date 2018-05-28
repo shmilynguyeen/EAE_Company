@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site_Left_Menu.master.cs" Inherits="EAE_Company.Site_Left_Menu" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true"   CodeBehind="Site_Left_Menu.master.cs" Inherits="EAE_Company.Site_Left_Menu" %>
 
 <!DOCTYPE html>
 
@@ -93,7 +93,7 @@
                     <!-- BEGIN TOP BAR LEFT PART -->
                     <div class="col-md-6 col-sm-6 additional-shop-info">
                         <ul class="list-unstyled list-inline">
-                            <li><i class="fa fa-phone"></i><span>+84 907818285</span></li>
+                            <li><i class="fa fa-phone"></i><span>+84 903468576</span></li>
                             <!-- BEGIN CURRENCIES -->
                             <li class="shop-currencies">
                                 <a href="javascript:void(0);">€</a>
@@ -253,7 +253,7 @@
                             </ul>
                             <!-- END DROPDOWN MENU -->
                         </li>--%>
-                        <li><a href="shop-item.html"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, industrialElectronics %>"></asp:Label></a>
+                        <li><a href="shop-item.html"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, electronicAutomation %>"></asp:Label></a>
                             <ul class="dropdown-menu">
                                 <li class="active"><a href="shop-index.html"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, sensor %>"></asp:Label></a></li>
                                 <li><a href="shop-index-header-fix.html"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, measuringDevice %>"></asp:Label></a></li>
@@ -262,7 +262,7 @@
                             </ul>
                         </li>
                         <li class="dropdown dropdown-megamenu">
-                            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, electronicAutomation %>"></asp:Label>
+                            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, industrialElectronics %>"></asp:Label>
                 
                             </a>
                             <ul class="dropdown-menu">
@@ -460,7 +460,7 @@
                     <ul class="breadcrumb">
                         <li><a href="home.aspx">Home</a></li>
                         <li><a href="#">Store</a></li>
-                        <li class="active">Cool green dress with red bell</li>
+                        <%--<li class="active">Cool green dress with red bell</li>--%>
                     </ul>
                     <!-- BEGIN SIDEBAR & CONTENT -->
                     <div class="row margin-bottom-40">
@@ -1113,4 +1113,3 @@
     </form>
 </body>
 </html>
-

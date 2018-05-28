@@ -237,4 +237,31 @@
   <data name="setupSystem" xml:space="preserve">
     <value>Lắp Đặt Máy Móc Ngành Dệt Nhuộm</value>
   </data>
+  <data name="addToCart" xml:space="preserve">
+    <value>Thêm Vào Giỏ</value>
+  </data>
+  <data name="description" xml:space="preserve">
+    <value>Mô Tả</value>
+  </data>
+  <data name="infomation" xml:space="preserve">
+    <value>Thông Tin</value>
+  </data>
+  <data name="mostPopularProduct" xml:space="preserve">
+    <value>Các Sản Phẩm Phổ Biến</value>
+  </data>
+  <data name="newArrivals" xml:space="preserve">
+    <value>Sản Phẩm Mới</value>
+  </data>
+  <data name="price" xml:space="preserve">
+    <value>Liên Hệ</value>
+  </data>
+  <data name="review" xml:space="preserve">
+    <value>Bình Luận</value>
+  </data>
+  <data name="threeItems" xml:space="preserve">
+    <value>Ba Sản Phẩm</value>
+  </data>
+  <data name="twoItems" xml:space="preserve">
+    <value>Hai Sản Phẩm</value>
+  </data>
 </root>

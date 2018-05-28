@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site_Left_Menu.master" AutoEventWireup="true" CodeBehind="ProductList.aspx.cs" Inherits="EAE_Company.ProductList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site_Left_Menu.master" EnableEventValidation="false" AutoEventWireup="false" CodeBehind="ProductList.aspx.cs" Inherits="EAE_Company.ProductList" %>
 
 <%@ Import Namespace="EAE_Company.Models" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -109,8 +109,14 @@
                 <!-- END PRODUCT LIST -->
 
                 <!-- BEGIN PAGINATOR -->
+                <% int current_item = 9;
+                    if(current_item > total_item )
+                    {
+                        current_item = total_item;
+                    }
+                        %>
                 <div class="row">
-                    <div class="col-md-4 col-sm-4 items-info">Items 1 to 9 of <%= total_item %> total</div>
+                    <div class="col-md-4 col-sm-4 items-info">Items 1 to <%= current_item %> of <%= total_item %> total</div>
                     <div class="col-md-8 col-sm-8">
                         <ul class="pagination pull-right">
                             <% 
@@ -124,7 +130,7 @@
 
 
 
-                            <% for (int page_num = 1; page_num <= ((total_item / 9) + 1); page_num++)
+                            <% for (int page_num = 1; page_num < ((total_item / 9) + 1); page_num++)
                                 {
                                     if (page_num == page)
                                     {

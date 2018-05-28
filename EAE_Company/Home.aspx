@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="EAE_Company.Home" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" EnableEventValidation="false"  AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="EAE_Company.Home" %>
+ 
 <%@ Import Namespace="EAE_Company.Models" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -113,7 +113,7 @@
             <div class="row margin-bottom-40">
                 <!-- BEGIN SALE PRODUCT -->
                 <div class="col-md-12 sale-product">
-                    <h2>New Arrivals</h2>
+                    <h2> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, newArrivals %>"></asp:Label> </h2>
                     <div class="owl-carousel owl-carousel5">
 
                         <!-- BEGIN NEW ARRIVAL ITEM LIST -->
@@ -138,8 +138,8 @@
                                     </div>
                                 </div>
                                 <h3><a href='<%= url %>'><%= item.getName() %></a></h3>
-                                <div class="pi-price">$29.00</div>
-                                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                                <div class="pi-price">$<asp:Label runat="server" Text="<%$ Resources:SiteMaster, price %>"></asp:Label></div>
+                                <a href="javascript:;" class="btn btn-default add2cart"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, addToCart %>"></asp:Label></a>
                                 <div class="sticker sticker-sale"></div>
                             </div>
                         </div>
@@ -597,7 +597,7 @@
                 <!-- END SIDEBAR -->
                 <!-- BEGIN CONTENT -->
                 <div class="col-md-9 col-sm-8">
-                    <h2>Three items</h2>
+                    <h2><asp:Label runat="server" Text="<%$ Resources:SiteMaster, threeItems %>"></asp:Label></h2>
                     <div class="owl-carousel owl-carousel3">
 
                         <!-- Load Item-->
@@ -617,8 +617,8 @@
                                     </div>
                                 </div>
                                 <h3><a href='<%= url %>'><%= item.getName() %></a></h3>
-                                <div class="pi-price">$29.00</div>
-                                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                                <div class="pi-price">$<asp:Label runat="server" Text="<%$ Resources:SiteMaster, price %>"></asp:Label></div>
+                                <a href="javascript:;" class="btn btn-default add2cart"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, addToCart %>"></asp:Label></a>
                                 <div class="sticker sticker-new"></div>
                             </div>
                         </div>
@@ -636,7 +636,7 @@
                 <!-- BEGIN TWO PRODUCTS -->
 
                 <div class="col-md-6 two-items-bottom-items">
-                    <h2>Two items</h2>
+                    <h2><asp:Label runat="server" Text="<%$ Resources:SiteMaster, twoItems %>"></asp:Label></h2>
                     <div class="owl-carousel owl-carousel2">
                          <% List<Item> twoItems = (List<Item>)Session["twoItems"];
                              foreach (Item item in twoItems)
@@ -656,8 +656,8 @@
                                     </div>
                                 </div>
                                 <h3><a href='<%= url %>'><%= item.getName() %></a></h3>
-                                <div class="pi-price">$29.00</div>
-                                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                                <div class="pi-price">$ <asp:Label runat="server" Text="<%$ Resources:SiteMaster, price %>"></asp:Label></div>
+                                <a href="javascript:;" class="btn btn-default add2cart"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, addToCart %>"></asp:Label></a>
                             </div>
                         </div>
                         <%} %>

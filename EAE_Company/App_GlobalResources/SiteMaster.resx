@@ -240,4 +240,31 @@
   <data name="setupSystem" xml:space="preserve">
     <value>Setup </value>
   </data>
+  <data name="addToCart" xml:space="preserve">
+    <value>Add To Cart</value>
+  </data>
+  <data name="description" xml:space="preserve">
+    <value>Descrtiption </value>
+  </data>
+  <data name="infomation" xml:space="preserve">
+    <value>Infomation</value>
+  </data>
+  <data name="mostPopularProduct" xml:space="preserve">
+    <value>Most popular products</value>
+  </data>
+  <data name="newArrivals" xml:space="preserve">
+    <value>New Arrivals</value>
+  </data>
+  <data name="price" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="review" xml:space="preserve">
+    <value>Reviews</value>
+  </data>
+  <data name="threeItems" xml:space="preserve">
+    <value>Three Items</value>
+  </data>
+  <data name="twoItems" xml:space="preserve">
+    <value>Two Items</value>
+  </data>
 </root>

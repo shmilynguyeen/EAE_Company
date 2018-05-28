@@ -27,7 +27,7 @@ namespace EAE_Company
             }
 
         }
-         public void changeLanguage(object sender, EventArgs e)
+        public void changeLanguage(object sender, EventArgs e)
         {
             // set cookie that is to be used by Global.asax
             HttpCookie cookie = new HttpCookie("CultureInfo");

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#"  MasterPageFile="~/Site_Left_Menu.master" AutoEventWireup="true"  CodeBehind="Details.aspx.cs" Inherits="EAE_Company.Details" %>
+﻿<%@ Page Language="C#"  MasterPageFile="~/Site_Left_Menu.master" AutoEventWireup="true"  EnableEventValidation="false" CodeBehind="Details.aspx.cs" Inherits="EAE_Company.Details" %>
 <%@ Import Namespace="EAE_Company.Models" %>
 <asp:content id="BodyContent" contentplaceholderid="MainContent" runat="server">
 
@@ -34,8 +34,8 @@
                     <h1><%= item.getName() %></h1>
                     <div class="price-availability-block clearfix">
                         <div class="price">
-                            <strong><span>$</span>47.00</strong>
-                            <em>$<span>62.00</span></em>
+                            <strong><span>$ <asp:Label runat="server" Text="<%$ Resources:SiteMaster, price %>"> </asp:Label> </span></strong>
+                            <%--<em>$<span>62.00</span></em>--%>
                         </div>
                         <div class="availability">
                             Availability: <strong>In Stock</strong>
@@ -87,9 +87,9 @@
 
                 <div class="product-page-content">
                     <ul id="myTab" class="nav nav-tabs">
-                        <li><a href="#Description" data-toggle="tab">Description</a></li>
-                        <li><a href="#Information" data-toggle="tab">Information</a></li>
-                        <li class="active"><a href="#Reviews" data-toggle="tab">Reviews (2)</a></li>
+                        <li><a href="#Description" data-toggle="tab"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, description %>"> </asp:Label></a></li>
+                        <li><a href="#Information" data-toggle="tab"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, infomation %>"> </asp:Label></a></li>
+                        <li class="active"><a href="#Reviews" data-toggle="tab"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, review %>"> </asp:Label></a></li>
                     </ul>
                     <div id="myTabContent" class="tab-content">
                         <div class="tab-pane fade" id="Description">
@@ -129,7 +129,7 @@
                             <div class="review-item clearfix">
                                 <div class="review-item-submitted">
                                     <strong>Bob</strong>
-                                    <em>30/12/2013 - 07:37</em>
+                                    <em>30/05/2018 - 07:37</em>
                                     <div class="rateit" data-rateit-value="5" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
                                 </div>
                                 <div class="review-item-content">
@@ -139,7 +139,7 @@
                             <div class="review-item clearfix">
                                 <div class="review-item-submitted">
                                     <strong>Mary</strong>
-                                    <em>13/12/2013 - 17:49</em>
+                                    <em>13/2/2018 - 17:49</em>
                                     <div class="rateit" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
                                 </div>
                                 <div class="review-item-content">
@@ -170,7 +170,7 @@
                                 </div>
                                 <div class="padding-top-20">
                                <asp:Button runat="server" Text="Send"  ID="send_comment"  class="btn btn-primary" OnClick="send_comment_Click"/>
-                                     </div>
+                                    
                             </div>
 
                             <!-- END FORM-->
@@ -190,7 +190,7 @@
     <!-- BEGIN SIMILAR PRODUCTS -->
     <div class="row margin-bottom-40">
         <div class="col-md-12 col-sm-12">
-            <h2>Most popular products</h2>
+            <h2> <asp:Label runat="server" Text="<%$ Resources:SiteMaster, mostPopularProduct %>"> </asp:Label></h2>
             <div class="owl-carousel owl-carousel4">
                 <div>
                     <div class="product-item">
@@ -286,7 +286,7 @@
 
 
     <!-- BEGIN BRANDS -->
-    <div class="brands">
+   <%-- <div class="brands">
         <div class="container">
             <div class="owl-carousel owl-carousel6-brands">
                 <a href="shop-product-list.html">
@@ -315,7 +315,7 @@
                     <img src="assets/pages/img/brands/zara.jpg" alt="zara" title="zara"></a>
             </div>
         </div>
-    </div>
+    </div>--%>
     <!-- END BRANDS -->
 
     <!-- BEGIN STEPS -->

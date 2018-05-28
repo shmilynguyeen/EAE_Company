@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="EAE_Company.Site" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true"  CodeBehind="Site.master.cs" Inherits="EAE_Company.Site" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -114,10 +114,14 @@
                     </div>
                     <!-- END TOP BAR LEFT PART -->
                     <!-- BEGIN TOP BAR MENU -->
+                    <% 
+                        // STRING URL SEARCH 
+                        String url_search = "ProductList.aspx?keySearch="; ;
+                        %>
                     <div class="col-md-6 col-sm-6 additional-nav">
                         <ul class="list-unstyled list-inline pull-right"  ">
-                            <li><a href="shop-account.html">
-                                <asp:Label runat="server" Text="<%$ Resources:SiteMaster, myAccount %>"></asp:Label></a></li>
+                            <li><a href="#">
+                                <asp:Label runat="server"  Text="<%$ Resources:SiteMaster, myAccount %>"></asp:Label></a></li>
                             <li><a href="shop-wishlist.html">
                                 <asp:Label runat="server" Text="<%$ Resources:SiteMaster, myWhishlist %>"></asp:Label></a></li>
                             <li><a href="CheckOut.aspx"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, checkout %>"></asp:Label></a></li>
@@ -256,7 +260,7 @@
                             </ul>
                             <!-- END DROPDOWN MENU -->
                         </li>--%>
-                        <li><a href="shop-item.html"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, industrialElectronics %>"></asp:Label></a>
+                        <li><a href="shop-item.html"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, electronicAutomation %>"></asp:Label></a>
                             <ul class="dropdown-menu">
                                 <li class="active"><a href="shop-index.html"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, sensor %>"></asp:Label></a></li>
                                 <li><a href="shop-index-header-fix.html"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, measuringDevice %>"></asp:Label></a></li>
@@ -264,8 +268,8 @@
                                 <li><a href="shop-product-list.html"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, programmingTools %>"></asp:Label></a></li>
                             </ul>
                         </li>
-                        <li class="dropdown dropdown-megamenu">
-                            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, electronicAutomation %>"></asp:Label>
+                        <li class="dropdown dropdown-megamenu"> 
+                            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, industrialElectronics %>"></asp:Label>
                 
                             </a>
                             <ul class="dropdown-menu">
