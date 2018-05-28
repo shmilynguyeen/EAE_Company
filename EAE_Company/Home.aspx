@@ -597,7 +597,7 @@
                 <!-- END SIDEBAR -->
                 <!-- BEGIN CONTENT -->
                 <div class="col-md-9 col-sm-8">
-                    <h2><asp:Label runat="server" Text="<%$ Resources:SiteMaster, threeItems %>"></asp:Label></h2>
+                    <h2 style="color:cornflowerblue"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, threeItems %>"></asp:Label></h2>
                     <div class="owl-carousel owl-carousel3">
 
                         <!-- Load Item-->
@@ -636,7 +636,7 @@
                 <!-- BEGIN TWO PRODUCTS -->
 
                 <div class="col-md-6 two-items-bottom-items">
-                    <h2><asp:Label runat="server" Text="<%$ Resources:SiteMaster, twoItems %>"></asp:Label></h2>
+                    <h3 style="color:chocolate"><asp:Label runat="server"   Text="<%$ Resources:SiteMaster, twoItems %>"></asp:Label></h3>
                     <div class="owl-carousel owl-carousel2">
                          <% List<Item> twoItems = (List<Item>)Session["twoItems"];
                              foreach (Item item in twoItems)

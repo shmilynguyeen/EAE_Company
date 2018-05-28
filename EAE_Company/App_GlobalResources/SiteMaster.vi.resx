@@ -232,7 +232,7 @@
     <value>Thiết Kế Hệ Thống Điện - Tự Động Hóa</value>
   </data>
   <data name="mantainServices" xml:space="preserve">
-    <value>Bảo Trì, Sữa Chữa Máy Móc, Thiết Bị</value>
+    <value>Bảo Trì, Lắp Đặt, Sữa Chữa Máy Móc, Thiết Bị</value>
   </data>
   <data name="setupSystem" xml:space="preserve">
     <value>Lắp Đặt Máy Móc Ngành Dệt Nhuộm</value>
@@ -250,7 +250,7 @@
     <value>Các Sản Phẩm Phổ Biến</value>
   </data>
   <data name="newArrivals" xml:space="preserve">
-    <value>Sản Phẩm Mới</value>
+    <value>Cung Cấp Thiết Bị Máy Móc Ngành Dệt - Nhuộm</value>
   </data>
   <data name="price" xml:space="preserve">
     <value>Liên Hệ</value>
@@ -259,9 +259,9 @@
     <value>Bình Luận</value>
   </data>
   <data name="threeItems" xml:space="preserve">
-    <value>Ba Sản Phẩm</value>
+    <value>Hệ Thống Điện - Giải Pháp Tự Động Hóa</value>
   </data>
   <data name="twoItems" xml:space="preserve">
-    <value>Hai Sản Phẩm</value>
+    <value>Dịch Vụ Lắp Đặt Bảo Trì - Sữa Chữa Máy Dệt - Nhuộm</value>
   </data>
 </root>

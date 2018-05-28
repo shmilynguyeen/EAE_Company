@@ -48,6 +48,10 @@
                         String path = HttpContext.Current.Request.Url.AbsoluteUri;
                         String next_path = "ProductList.aspx?keySearch=" + key_search + "&page=" + (page + 1);
                         String previour_path = "";
+                        //if(null == key_search)
+                        //{
+                        //    key_search = Request.QueryString["category"];
+                        //}
 
                         if (null != Request.QueryString["page"])
                         {

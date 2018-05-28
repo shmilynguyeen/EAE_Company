@@ -178,7 +178,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Maintain System.
+        ///   Looks up a localized string similar to Maintenance -Setting Services - Textile - Dyeing Machines.
         /// </summary>
         internal static string mantainServices {
             get {
@@ -277,7 +277,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New Arrivals.
+        ///   Looks up a localized string similar to Provide Spare Part Textile - Dyeing Machines.
         /// </summary>
         internal static string newArrivals {
             get {
@@ -493,7 +493,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Three Items.
+        ///   Looks up a localized string similar to Electrical Systems - Automation Solutions.
         /// </summary>
         internal static string threeItems {
             get {
@@ -502,7 +502,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Two Items.
+        ///   Looks up a localized string similar to Maintenance -Setting Services - Textile - Dyeing Machines.
         /// </summary>
         internal static string twoItems {
             get {

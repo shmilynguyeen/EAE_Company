@@ -425,12 +425,13 @@
                             </ul>
                         </li>--%>
 
-
+                        <% 
+                            String url_automation = "ProductList.aspx?keySearch=Dịch Vụ";
+                            %>
                         <li><a href="#" target="_blank"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, technicalServices %>"></asp:Label></a>
                             <ul class="dropdown-menu">
-                                <li class="active"><a href="#"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, designElectric %>"></asp:Label></a></li>
+                                <li class="active"><a href='<%= url_automation %>'><asp:Label runat="server" Text="<%$ Resources:SiteMaster, designElectric %>"></asp:Label></a></li>
                                 <li><a href="#"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, mantainServices %>"></asp:Label></a></li>
-                                <li><a href="#"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, setupSystem %>"></asp:Label></a></li>
                             </ul>
                         </li>
 
