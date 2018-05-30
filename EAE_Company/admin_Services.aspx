@@ -17,27 +17,27 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 <body>
+    <form id="form1" runat="server">
 
+        <div id="wrapper">
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="adjust-nav">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">
+                            <img src="assets/img/logo.png" />
+                        </a>
+                    </div>
 
+                    <span class="logout-spn">
+                        <a href="#" style="color: #fff;">LOGOUT</a>
 
-    <div id="wrapper">
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="adjust-nav">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">
-                        <img src="assets/img/logo.png" />
-                    </a>
+                    </span>
                 </div>
-
-                <span class="logout-spn">
-                    <a href="#" style="color: #fff;">LOGOUT</a>
-
-                </span>
             </div>
         </div>
         <!-- /. NAV TOP  -->
@@ -90,45 +90,52 @@
                 </div>
                 <!-- /. ROW  -->
                 <hr />
-                <div class="row" >
+                <div class="row">
+                    
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <h5>Item Information</h5>
                         <div class="input-group">
                             <span class="input-group-addon">Category code</span>
-                            <input type="text" class="form-control" placeholder="Category code" />
+                            <asp:TextBox runat="server" ID="txtCategoryCode" class="form-control" placeholder="Category code" />
                         </div>
                         <br />
                         <div class="input-group">
                             <span class="input-group-addon">Item name (vi)</span>
-                            <input type="text" class="form-control" placeholder="Item name (vi)" />
+                            <asp:TextBox runat="server" ID="txtItemNameVi" type="text" class="form-control" placeholder="Item name (vi)" />
                         </div>
                         <br />
                         <div class="input-group">
                             <span class="input-group-addon">Item name(en)</span>
-                            <input type="text" class="form-control" placeholder="Item name(en)" />
+                            <asp:TextBox runat="server" ID="txtItemNameEn" type="text" class="form-control" placeholder="Item name(en)" />
                         </div>
                         <br />
                         <div class="input-group">
                             <span class="input-group-addon">Description(vi)</span>
-                            <input type="text" class="form-control" placeholder="Description(vi)" />
+                            <asp:TextBox runat="server" ID="txtDescriptionVi" type="text" class="form-control" placeholder="Description(vi)" />
                         </div>
                         <br />
                         <div class="input-group">
                             <span class="input-group-addon">Description(en)</span>
-                            <input type="text" class="form-control" placeholder="Description(en)" />
+                            <asp:TextBox runat="server" ID="txtDescriptionEn" type="text" class="form-control" placeholder="Description(en)" />
                         </div>
                         <br />
                         <div class="input-group">
                             <span class="input-group-addon">Price</span>
-                            <input type="text" class="form-control" placeholder="Price" />
+                            <asp:TextBox runat="server" ID="txtPrice" type="text" class="form-control" placeholder="Price" />
+                            <span class="input-group-addon">VNĐ</span>
                         </div>
                         <br />
+
                         <div class="input-group">
                             <span class="input-group-addon">Group</span>
-                            <input type="text" class="form-control" placeholder="Group" />
+                            <asp:DropDownList runat="server" class="form-control" ID="txtGroup">
+                                <asp:ListItem Value="0">Provide Machines</asp:ListItem>
+                                <asp:ListItem Value="3">Services</asp:ListItem>
+                                <asp:ListItem Value="2">Mantain & Setting</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                         <br />
-                         
+
                     </div>
 
                     <%-- LOAD ALL IMAGES OF ITEM --%>
@@ -175,6 +182,16 @@
 
 
                             </div>
+                            <br />
+                            <br />
+                            <h5>Select Processing </h5>
+                            <asp:Button runat="server" ID="btnsave" OnClick="btnsave_Click" class="btn btn-success" Text="Save" />  
+                            <asp:Button runat="server" ID="btnUpdate"  OnClick="btnUpdate_Click" class="btn btn-info" Text="Update" />  
+                            <asp:Button runat="server" ID="btnDelete"  OnClick="btnDelete_Click" class="btn btn-danger" Text="Delete" />  
+
+                            
+
+
 
 
 
@@ -261,5 +278,8 @@
                 <script src="assets/plugins/assets/js/bootstrap.min.js"></script>
                 <!-- CUSTOM SCRIPTS -->
                 <script src="assets/plugins/assets/js/custom.js"></script>
+            </div>
+        </div>
+    </form>
 </body>
 </html>

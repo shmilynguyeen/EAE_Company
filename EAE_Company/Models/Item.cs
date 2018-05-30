@@ -6,6 +6,7 @@ using Microsoft.ApplicationBlocks.Data;
 using EAE_Company.Commons;
 using System.Web;
 using System.Web.SessionState;
+using System.Data.SqlClient;
 
 namespace EAE_Company.Models
 {
@@ -18,7 +19,7 @@ namespace EAE_Company.Models
         //Declare an instance for log4net
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        string itemCode { get; set; }
+        string itemCode  { get; set; }
         string itemNameVi { get; set; }
         string itemDescriptionVi { get; set; }
         string itemDescription { get; set; }
@@ -29,21 +30,28 @@ namespace EAE_Company.Models
         string itemGroup { get; set; }
         string itemCategory { get; set; }
 
+        
+
+
 
 
         public Item()
         {
 
         }
-        public Item(string code, string nameVi, string name, string desVi, string des, List<string> imgs)
+        public Item(string code, string nameVi, string name, string desVi, string des, string price, List<string> imgs , string group)
         {
-            this.itemCode = code;
+            this.itemCategory = code;
             this.itemName = name;
             this.itemNameVi = nameVi;
             this.itemDescription = des;
             this.itemDescriptionVi = desVi;
+            this.itemPrice = price;
             this.imageList = imgs;
+            this.itemGroup = group;
         }
+
+
         // GET  ITEMS  
         // 0 - Provide Machines
         // 3 - Services
@@ -80,7 +88,7 @@ namespace EAE_Company.Models
                         imgs.Add(img);
                         item.imageList = imgs;
                         // GET ITEM GROUP 
-                        int groupCode = int.Parse( r["Item_Group"].ToString().Trim());
+                        int groupCode = int.Parse(r["Item_Group"].ToString().Trim());
                         item.itemGroup = getItemGroup(groupCode);
 
 
@@ -106,9 +114,9 @@ namespace EAE_Company.Models
 
         public string getName()
         {
-           
-                this.language = HttpContext.Current.Session["language"].ToString().Trim();
-             
+
+            this.language = HttpContext.Current.Session["language"].ToString().Trim();
+
 
             if (this.language.Equals("en-US") && null != this.language)
             {
@@ -123,16 +131,16 @@ namespace EAE_Company.Models
             return this.itemNameVi;
         }
 
-        public string getItemGroup( int code)
+        public string getItemGroup(int code)
         {
             string group = null;
             switch (code)
             {
                 case 3:
-                    group =  "Services";
+                    group = "Services";
                     break;
                 case 2:
-                    group =  "Provide Machines ";
+                    group = "Provide Machines ";
                     break;
                 default:
                     group = "Mantain & Setting";
@@ -144,7 +152,7 @@ namespace EAE_Company.Models
 
         public string getItemGroup()
         {
-             
+
             return itemGroup;
 
         }
@@ -322,6 +330,42 @@ namespace EAE_Company.Models
 
             }
             return listItem;
+        }
+
+        public void insertItem(Item item)
+        {
+            try
+            {
+                string sQuery = @" INSERT INTO [dbo].[item]
+           ([Category_Code]
+           ,[Item_Name_Vi]
+           ,[Item_Name_Eng]
+           ,[Item_Description_Vi]
+           ,[Item_Description_Eng]
+           ,[Item_Price]
+           ,[Item_Group])
+            VALUES ('{0}', '{1}', '{2}', '{3}' , '{4}', '{5}','{6}')";
+                decimal price = 0;
+                if(item.getPrice().Length > 1)
+                {
+                    price = decimal.Parse( item.getPrice().Trim());
+                }
+
+                sQuery = string.Format(sQuery, item.getCategory(), item.getNameVi(), item.getNameEn(),
+                    item.getDescriptionVi(), item.getDescriptionEn(), price, item.getItemGroup());
+                SqlConnection con = new SqlConnection(ClsCommons.connectionStr);
+                SqlCommand command = new SqlCommand(sQuery, con);
+                con.Open();
+                command.ExecuteNonQuery();
+                con.Close();
+                log.Info("Insert item " + item.getNameVi() + "success ! ");
+
+            }
+            catch (Exception ex)
+            {
+                log.Error("ERROR INSERT ITEM at : " + ex);
+
+            }
         }
 
     }
