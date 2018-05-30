@@ -25,6 +25,9 @@ namespace EAE_Company.Models
         string itemName { get; set; }
         List<string> imageList { get; set; }
         String language { get; set; }
+        string itemPrice { get; set; }
+        string itemGroup { get; set; }
+        string itemCategory { get; set; }
 
 
 
@@ -42,16 +45,16 @@ namespace EAE_Company.Models
             this.imageList = imgs;
         }
         // GET  ITEMS  
-        // 0 - New Arrival
-        // 3 - Three Items
-        // 2 - Two Items
+        // 0 - Provide Machines
+        // 3 - Services
+        // 2 - Maintain and Setting 
         public List<Item> getItems(int item_group)
         {
             List<Item> listItem = new List<Item>();
             string sQuery = "";
             try
             {
-                sQuery = @" SELECT i.ID , i.Item_Code, i.Item_Name_Vi, i.Item_Name_Eng, 
+                sQuery = @" SELECT i.ID , i.Item_Code, i.Item_Name_Vi, i.Item_Name_Eng, i.Item_Group,i.Category_Code,
                             i.Item_Description_Vi , i.Item_Description_Eng, img.Image_URL from item i 
                             left join images img on 
                             img.Item_ID = i.ID 
@@ -71,10 +74,16 @@ namespace EAE_Company.Models
                         item.itemDescription = r["Item_Description_Eng"].ToString().Trim();
                         item.itemDescriptionVi = r["Item_Description_Vi"].ToString().Trim();
                         item.itemCode = r["ID"].ToString();
+                        item.itemCategory = r["Category_Code"].ToString().Trim();
                         string img = r["Image_URL"].ToString().TrimEnd().TrimStart();
                         List<string> imgs = new List<string>();
                         imgs.Add(img);
                         item.imageList = imgs;
+                        // GET ITEM GROUP 
+                        int groupCode = int.Parse( r["Item_Group"].ToString().Trim());
+                        item.itemGroup = getItemGroup(groupCode);
+
+
 
                         listItem.Add(item);
                         count++;
@@ -108,6 +117,63 @@ namespace EAE_Company.Models
 
             return this.itemNameVi;
         }
+
+        public string getNameVi()
+        {
+            return this.itemNameVi;
+        }
+
+        public string getItemGroup( int code)
+        {
+            string group = null;
+            switch (code)
+            {
+                case 3:
+                    group =  "Services";
+                    break;
+                case 2:
+                    group =  "Provide Machines ";
+                    break;
+                default:
+                    group = "Mantain & Setting";
+                    break;
+            }
+            return group;
+
+        }
+
+        public string getItemGroup()
+        {
+             
+            return itemGroup;
+
+        }
+        public string getNameEn()
+        {
+            return this.itemName;
+        }
+
+        public string getCategory()
+        {
+            return this.itemCategory;
+        }
+
+        public string getDescriptionVi()
+        {
+            return this.itemDescriptionVi;
+        }
+
+        public string getDescriptionEn()
+        {
+            return this.itemDescription;
+        }
+
+
+        public string getPrice()
+        {
+            return this.itemPrice;
+        }
+
         public string getItemCode()
         {
             return this.itemCode;
@@ -257,5 +323,6 @@ namespace EAE_Company.Models
             }
             return listItem;
         }
+
     }
 }

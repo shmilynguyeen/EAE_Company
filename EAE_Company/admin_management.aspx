@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="admin_management.aspx.cs" Inherits="EAE_Company.admin_management" %>
 
+<%@ Import Namespace="EAE_Company.Models" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -84,7 +85,7 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>BASIC UI ELEMENTS</h2>
+                        <h2>PRODUCT MANAGEMENT</h2>
                     </div>
                 </div>
                 <!-- /. ROW  -->
@@ -155,43 +156,41 @@
                     </div>
                 </div>
                 <hr>
+
+                <%-- CATEGORY MANAGEMENT --%>
+                <% 
+                    List<Category> categoryList = new Category().getAllCategory();
+
+                %>
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <h5>Table  Sample One</h5>
+                        <h5>Category Management</h5>
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Username</th>
+                                    <th>Category Code</th>
+                                    <th>Category Name (Vi)</th>
+                                    <th>Category Name (En)</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <%--  DISPLAY ALL CATEGORY  --%>
+                                <% 
+                                    int index = 1;
+                                    foreach (Category category in categoryList)
+                                    {
+                                %>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
+                                    <td><div contenteditable="true"><%= index %></div></td>
+                                    <td><%= category.getCategoryCode() %></td>
+                                    <td><%= category.getCategoryNameVi() %></td>
+                                    <td><%= category.getCategoryNameEn() %></td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
+                                <%
+                                        index += 1;
+                                    }
+                                %>
                             </tbody>
                         </table>
 

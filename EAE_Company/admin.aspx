@@ -104,9 +104,9 @@
                 <div class="row text-center pad-top">
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
-                            <a href="blank.html">
+                            <a href="admin_management.aspx">
                                 <i class="fa fa-circle-o-notch fa-5x"></i>
-                                <h4>Check Data</h4>
+                                <h4>Product </h4>
                             </a>
                         </div>
 
@@ -115,9 +115,9 @@
 
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
-                            <a href="blank.html">
+                            <a href="admin_Services.aspx">
                                 <i class="fa fa-envelope-o fa-5x"></i>
-                                <h4>Mail Box</h4>
+                                <h4>Services</h4>
                             </a>
                         </div>
 
@@ -125,9 +125,9 @@
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
-                            <a href="blank.html">
+                            <a href="admin_ItemList.aspx">
                                 <i class="fa fa-lightbulb-o fa-5x"></i>
-                                <h4>New Issues</h4>
+                                <h4>Item Category</h4>
                             </a>
                         </div>
 
@@ -444,7 +444,7 @@
 
         <div class="row">
             <div class="col-lg-12">
-                &copy;  2014 yourdomain.com | Design by: <a href="http://binarytheme.com" style="color: #fff;" target="_blank">www.binarytheme.com</a>
+                &copy;  2018 Eae.copmpany.com | Design by: <a href="#" style="color: #fff;" target="_blank">www.Eae.company.com</a>
             </div>
         </div>
     </div>
