@@ -91,7 +91,7 @@
                 <!-- /. ROW  -->
                 <hr />
                 <div class="row">
-                    
+
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <h5>Item Information</h5>
                         <div class="input-group">
@@ -185,11 +185,11 @@
                             <br />
                             <br />
                             <h5>Select Processing </h5>
-                            <asp:Button runat="server" ID="btnsave" OnClick="btnsave_Click" class="btn btn-success" Text="Save" />  
-                            <asp:Button runat="server" ID="btnUpdate"  OnClick="btnUpdate_Click" class="btn btn-info" Text="Update" />  
-                            <asp:Button runat="server" ID="btnDelete"  OnClick="btnDelete_Click" class="btn btn-danger" Text="Delete" />  
+                            <asp:Button runat="server" ID="btnsave" OnClick="btnsave_Click" class="btn btn-success" Text="Save" />
+                            <asp:Button runat="server" ID="btnUpdate" OnClick="btnUpdate_Click" class="btn btn-info" Text="Update" />
+                            <asp:Button runat="server" ID="btnDelete" OnClick="btnDelete_Click" class="btn btn-danger" Text="Delete" />
 
-                            
+
 
 
 
@@ -228,7 +228,7 @@
                                 </thead>
                                 <tbody>
                                     <%--  DISPLAY ALL CATEGORY  --%>
-                                    <% 
+                                    <%--  <% 
                                         int index = 1;
                                         foreach (Item item in itemList)
                                         {
@@ -240,17 +240,29 @@
                                         <td><%= item.getCategory() %></td>
                                         <td><%= item.getNameVi() %></td>
                                         <td><%= item.getNameEn() %></td>
-
                                         <td><%= item.getDescriptionVi() %></td>
                                         <td><%= item.getDescription() %></td>
                                         <td><%= item.getPrice() %></td>
                                         <td><%= item.getItemGroup() %></td>
-                                        <td><a href="#" class="btn btn-danger">Edit</a></td>
+                                        <td><asp:Button runat="server" ID="btnEdit" OnClick="btnEdit_Click" Text="Edit" class="btn btn-danger" /></td>
                                     </tr>
                                     <%
                                             index += 1;
                                         }
-                                    %>
+                                    %>--%>
+
+                                    <tr>
+                                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" AllowPaging="true"
+                                            OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="10">
+                                            <Columns>
+                                                <asp:BoundField ItemStyle-Width="150px" DataField="CustomerID" HeaderText="Customer ID" />
+                                                <asp:BoundField ItemStyle-Width="150px" DataField="ContactName" HeaderText="Contact Name" />
+                                                <asp:BoundField ItemStyle-Width="150px" DataField="City" HeaderText="City" />
+                                                <asp:BoundField ItemStyle-Width="150px" DataField="Country" HeaderText="Country" />
+                                            </Columns>
+                                        </asp:GridView>
+                                    </tr>
+
                                 </tbody>
                             </table>
                             <hr />
