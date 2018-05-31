@@ -95,8 +95,13 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <h5>Item Information</h5>
                         <div class="input-group">
-                            <span class="input-group-addon">Category code</span>
-                            <asp:TextBox runat="server" ID="txtCategoryCode" class="form-control" placeholder="Category code" />
+                            <span class="input-group-addon">Category</span>
+                            <asp:DropDownList runat="server" class="form-control" ID="dropdownCategoryCode">
+                                <asp:ListItem Value="MAY_DET">MAY_DET</asp:ListItem>
+                                <asp:ListItem Value="MAY_HO_SOI">MAY_HO_SOI</asp:ListItem>
+                                <asp:ListItem Value="DICH_VU">DICH_VU</asp:ListItem>
+                                <asp:ListItem Value="TBMMND">TBMMND</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                         <br />
                         <div class="input-group">
@@ -185,16 +190,9 @@
                             <br />
                             <br />
                             <h5>Select Processing </h5>
-                            <asp:Button runat="server" ID="btnsave" OnClick="btnsave_Click" class="btn btn-success" Text="Save" />
-                            <asp:Button runat="server" ID="btnUpdate" OnClick="btnUpdate_Click" class="btn btn-info" Text="Update" />
-                            <asp:Button runat="server" ID="btnDelete" OnClick="btnDelete_Click" class="btn btn-danger" Text="Delete" />
-
-
-
-
-
-
-
+                            <asp:Button runat="server" ID="btnsave" OnClick="btnsave_Click" class="btn btn-success" Text="Create New Item" />
+                            <%-- <asp:Button runat="server" ID="btnUpdate" OnClick="btnUpdate_Click" class="btn btn-info" Text="Update" />
+                            <asp:Button runat="server" ID="btnDelete" OnClick="btnDelete_Click" class="btn btn-danger" Text="Delete" />--%>
                         </div>
                     </div>
 
@@ -202,69 +200,27 @@
 
 
                     <%-- CATEGORY MANAGEMENT --%>
-                    <% 
-                        // Services with category code = 3
-                        Item i = new Item();
-                        List<Item> itemList = i.getItems(3);
-                        int a = itemList.Count();
 
-                    %>
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
-                            <h5>Category Management</h5>
-                            <table class="table table-striped table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Category Code</th>
-                                        <th>Item Name (Vi)</th>
-                                        <th>Item Name (En)</th>
-                                        <th>Item Description (Vi)</th>
-                                        <th>Item Description (En)</th>
-                                        <th>Item Price</th>
-                                        <th>Item Group</th>
-                                        <th>Edit</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <%--  DISPLAY ALL CATEGORY  --%>
-                                    <%--  <% 
-                                        int index = 1;
-                                        foreach (Item item in itemList)
-                                        {
-                                    %>
-                                    <tr>
-                                        <td>
-                                            <div contenteditable="true"><%= index %></div>
-                                        </td>
-                                        <td><%= item.getCategory() %></td>
-                                        <td><%= item.getNameVi() %></td>
-                                        <td><%= item.getNameEn() %></td>
-                                        <td><%= item.getDescriptionVi() %></td>
-                                        <td><%= item.getDescription() %></td>
-                                        <td><%= item.getPrice() %></td>
-                                        <td><%= item.getItemGroup() %></td>
-                                        <td><asp:Button runat="server" ID="btnEdit" OnClick="btnEdit_Click" Text="Edit" class="btn btn-danger" /></td>
-                                    </tr>
-                                    <%
-                                            index += 1;
-                                        }
-                                    %>--%>
-
-                                    <tr>
-                                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" AllowPaging="true"
-                                            OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="10">
-                                            <Columns>
-                                                <asp:BoundField ItemStyle-Width="150px" DataField="CustomerID" HeaderText="Customer ID" />
-                                                <asp:BoundField ItemStyle-Width="150px" DataField="ContactName" HeaderText="Contact Name" />
-                                                <asp:BoundField ItemStyle-Width="150px" DataField="City" HeaderText="City" />
-                                                <asp:BoundField ItemStyle-Width="150px" DataField="Country" HeaderText="Country" />
-                                            </Columns>
-                                        </asp:GridView>
-                                    </tr>
-
-                                </tbody>
-                            </table>
+                            <h4>Category Management</h4>
+                            <asp:GridView ID="GridView1" runat="server" DataKeyNames="ID" AutoGenerateColumns="false" AllowPaging="true"
+                                OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="10" class="table table-striped table-bordered table-hover"
+                                OnRowEditing="GridView1_RowEditing" OnRowDeleting="GridView1_RowDeleting" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit"
+                                HeaderStyle-HorizontalAlign="Left">
+                                <Columns>
+                                    <asp:BoundField ItemStyle-Width="150px" DataField="ID" HeaderText="ID" />
+                                    <asp:BoundField ItemStyle-Width="150px" DataField="Category_Code" HeaderText="Category Code" />
+                                    <asp:BoundField ItemStyle-Width="150px" DataField="Item_Name_Vi" HeaderText="Item Name (Vi)" />
+                                    <asp:BoundField ItemStyle-Width="150px" DataField="Item_Name_Eng" HeaderText="Item Name (En)" />
+                                    <asp:BoundField ItemStyle-Width="150px" DataField="Item_Description_Vi" HeaderText="Description (Vi)" />
+                                    <asp:BoundField ItemStyle-Width="150px" DataField="Item_Description_Eng" HeaderText="Description (En)" />
+                                    <asp:BoundField ItemStyle-Width="150px" DataField="Item_Price" HeaderText="Item Price" />
+                                    <asp:BoundField ItemStyle-Width="150px" DataField="Item_Group" HeaderText="Item Group" />
+                                    <asp:CommandField ShowEditButton="true" />
+                                    <asp:CommandField ShowDeleteButton="true" />
+                                </Columns>
+                            </asp:GridView>
                             <hr />
                             <!-- /. ROW  -->
                         </div>
