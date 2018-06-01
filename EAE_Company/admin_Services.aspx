@@ -147,10 +147,14 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="row text-center pad-top">
 
+
+
+
+
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <div class="div-square">
                                     <a href="blank.html">
-                                        <i class="fa fa-envelope-o fa-5x"></i>
+                                        <asp:Image runat="server" ID="img1" ImageUrl="~/assets/data_img_temp/img1.jpg" />
                                         <h4>Item Images</h4>
                                     </a>
                                 </div>
@@ -160,7 +164,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <div class="div-square">
                                     <a href="blank.html">
-                                        <i class="fa fa-lightbulb-o fa-5x"></i>
+                                        <asp:Image runat="server" ID="Image1" ImageUrl="~/assets/data_img_temp/img2.jpg" />
                                         <h4>Item Images</h4>
                                     </a>
                                 </div>
@@ -170,7 +174,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <div class="div-square">
                                     <a href="blank.html">
-                                        <i class="fa fa-envelope-o fa-5x"></i>
+                                        <asp:Image runat="server" ID="Image2" ImageUrl="~/assets/data_img_temp/img3.jpg" />
                                         <h4>Item Images</h4>
                                     </a>
                                 </div>
@@ -180,7 +184,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <div class="div-square">
                                     <a href="blank.html">
-                                        <i class="fa fa-lightbulb-o fa-5x"></i>
+                                        <asp:Image runat="server" ID="Image3" ImageUrl="~/assets/data_img_temp/img4.jpg" />
                                         <h4>Item Images</h4>
                                     </a>
                                 </div>
@@ -190,9 +194,18 @@
                             <br />
                             <br />
                             <h5>Select Processing </h5>
+
+                            <asp:FileUpload Style="margin-left: 20px" ID="FileUpload1" name="FileUpload1" runat="server" AllowMultiple="true" />
+                            <asp:Label runat="server" ID="lbOutput"></asp:Label>
                             <asp:Button runat="server" ID="btnsave" OnClick="btnsave_Click" class="btn btn-success" Text="Create New Item" />
-                            <%-- <asp:Button runat="server" ID="btnUpdate" OnClick="btnUpdate_Click" class="btn btn-info" Text="Update" />
-                            <asp:Button runat="server" ID="btnDelete" OnClick="btnDelete_Click" class="btn btn-danger" Text="Delete" />--%>
+                            <asp:Button runat="server" ID="btnPreview" OnClick="btnPreview_Click" class="btn btn-info" Text="Preview Images" />
+                            <asp:RegularExpressionValidator
+                                ID="RegularExpressionValidator1"
+                                runat="server"
+                                ErrorMessage="Only zip file is allowed!"
+                                ValidationExpression="^.+(.jpg|.JPG|.png}.PNG)$"
+                                ControlToValidate="FileUpload1"> </asp:RegularExpressionValidator>
+                            <%--<asp:Button runat="server" ID="btnDelete" OnClick="btnDelete_Click" class="btn btn-danger" Text="Delete" />--%>
                         </div>
                     </div>
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -177,5 +178,31 @@ namespace EAE_Company
             GridView1.EditIndex = -1;
             gvbind();
         }
+
+        protected void btnPreview_Click(object sender, EventArgs e)
+        {
+            int count = 1;
+            //Validate file type 
+            //if (!Page.IsValid)
+            //{
+            //    lbOutput.Text = "Invalid file type ! ";
+            //}
+
+            foreach(HttpPostedFile p in FileUpload1.PostedFiles)
+            {
+                if(count > 4)
+                {
+                    break;
+                }
+                p.SaveAs(MapPath("~/assets/data_img_temp/" + "img"+count + ".jpg" ));
+                count += 1;
+                 
+            }
+           
+        }
+
+
+         
     }
+
 }
