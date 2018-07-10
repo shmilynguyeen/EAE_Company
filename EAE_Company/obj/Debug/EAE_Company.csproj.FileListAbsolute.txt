@@ -243,7 +243,5 @@ D:\Sources\EAE_Companies\EAE_Company\bin\Microsoft.Owin.Security.Google.xml
 D:\Sources\EAE_Companies\EAE_Company\bin\Microsoft.Owin.Security.Twitter.xml
 D:\Sources\EAE_Companies\EAE_Company\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\Sources\EAE_Companies\EAE_Company\bin\Microsoft.Owin.Security.OAuth.xml
-D:\Sources\EAE_Companies\EAE_Company\obj\Debug\EAE_Company.csproj.CoreCompileInputs.cache
-D:\Sources\EAE_Companies\EAE_Company\obj\Debug\EAE_Company.csproj.CopyComplete
 D:\Sources\EAE_Companies\EAE_Company\obj\Debug\EAE_Company.dll
 D:\Sources\EAE_Companies\EAE_Company\obj\Debug\EAE_Company.pdb

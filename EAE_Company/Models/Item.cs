@@ -5,8 +5,6 @@ using log4net;
 using Microsoft.ApplicationBlocks.Data;
 using EAE_Company.Commons;
 using System.Web;
-using System.Web.SessionState;
-using System.Data.SqlClient;
 
 namespace EAE_Company.Models
 {
@@ -19,7 +17,8 @@ namespace EAE_Company.Models
         //Declare an instance for log4net
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        string itemCode  { get; set; }
+        string itemID { get; set; }
+        List<string> category  { get; set; }
         string itemNameVi { get; set; }
         string itemDescriptionVi { get; set; }
         string itemDescription { get; set; }
@@ -28,7 +27,7 @@ namespace EAE_Company.Models
         String language { get; set; }
         string itemPrice { get; set; }
         string itemGroup { get; set; }
-        string itemCategory { get; set; }
+       
 
         
 
@@ -41,7 +40,7 @@ namespace EAE_Company.Models
         }
         public Item(string code, string nameVi, string name, string desVi, string des, string price, List<string> imgs , string group)
         {
-            this.itemCategory = code;
+           
             this.itemName = name;
             this.itemNameVi = nameVi;
             this.itemDescription = des;
@@ -52,23 +51,19 @@ namespace EAE_Company.Models
         }
 
 
-        // GET  ITEMS  
-        // 0 - Provide Machines
-        // 3 - Services
-        // 2 - Maintain and Setting 
-        public List<Item> getItems(int item_group)
+        public List<Item> findSimilarItems()
         {
             List<Item> listItem = new List<Item>();
             string sQuery = "";
             try
             {
-                sQuery = @" SELECT i.ID , i.Item_Code, i.Item_Name_Vi, i.Item_Name_Eng, i.Item_Group,i.Category_Code,
-                            i.Item_Description_Vi , i.Item_Description_Eng, img.Image_URL from item i 
-                            left join images img on 
-                            img.Item_ID = i.ID 
-							where i.Is_Active ='1' and Item_Group={0}";
+                sQuery = @"  SELECT distinct  i.item_name, i.item_name_en, i.description , i.description_en , i.item_code , i.item_id  from item i 
+                            left join item_images img on 
+                            img.item_id = i.item_id
+							where i.Is_Active ='1' and (i.category_id1 = '{0}' or i.category_id2 = '{0}' 
+                            or i.category_id3 = '{0}'or i.category_id4 = '{0}' or i.category_id5 = '{0}') ";
 
-                sQuery = string.Format(sQuery, item_group);
+                sQuery = string.Format(sQuery, this.category[0].ToString());
                 DataSet ds = SqlHelper.ExecuteDataset(ClsCommons.connectionStr, CommandType.Text, sQuery);
                 if (ds.Tables.Count > 0)
                 {
@@ -77,21 +72,14 @@ namespace EAE_Company.Models
                     {
                         DataRow r = ds.Tables[0].Rows[count];
                         Item item = new Item();
-                        item.itemNameVi = r["Item_Name_Vi"].ToString().Trim();
-                        item.itemName = r["Item_Name_Eng"].ToString().Trim();
-                        item.itemDescription = r["Item_Description_Eng"].ToString().Trim();
-                        item.itemDescriptionVi = r["Item_Description_Vi"].ToString().Trim();
-                        item.itemCode = r["ID"].ToString();
-                        item.itemCategory = r["Category_Code"].ToString().Trim();
-                        string img = r["Image_URL"].ToString().TrimEnd().TrimStart();
-                        List<string> imgs = new List<string>();
-                        imgs.Add(img);
-                        item.imageList = imgs;
-                        // GET ITEM GROUP 
-                        int groupCode = int.Parse(r["Item_Group"].ToString().Trim());
-                        item.itemGroup = getItemGroup(groupCode);
+                        item.itemNameVi = r["item_name"].ToString().Trim();
+                        item.itemName = r["item_name_en"].ToString().Trim();
+                        item.itemDescription = r["description_en"].ToString().Trim();
+                        item.itemDescriptionVi = r["description"].ToString().Trim();
+                        item.itemID = r["item_id"].ToString();
 
-
+                        List<string> images = getImgSrouce(item.getItemID());
+                        item.imageList = images;
 
                         listItem.Add(item);
                         count++;
@@ -106,11 +94,63 @@ namespace EAE_Company.Models
             return listItem;
         }
 
-        // UPDATE LANGUAGE 
-        public void setLanguage(string language)
+        // GET  ITEMS  
+        // 0 - Provide Machines
+        // 3 - Services
+        // 2 - Maintain and Setting 
+        public List<Item> getItems( int category )
         {
-            this.LANGUAGE = language;
+            List<Item> listItem = new List<Item>();
+            string sQuery = "";
+            try
+            {
+                sQuery = @"  SELECT distinct  i.item_name, i.item_name_en, i.category_id1, i.category_id2, 
+                        i.category_id3, i.category_id4, i.category_id5, i.description , i.description_en ,
+                        i.item_code , i.item_id  from item i 
+                            left join item_images img on 
+                            img.item_id = i.item_id
+							where i.Is_Active ='1' and i.category_id1 = '{0}' ";
+
+                sQuery = string.Format(sQuery, category);
+                DataSet ds = SqlHelper.ExecuteDataset(ClsCommons.connectionStr, CommandType.Text, sQuery);
+                if (ds.Tables.Count > 0)
+                {
+                    int count = 0;
+                    while (count < ds.Tables[0].Rows.Count)
+                    {
+                        DataRow r = ds.Tables[0].Rows[count];
+                        Item item = new Item();
+                        item.itemNameVi = r["item_name"].ToString().Trim();
+                        item.itemName = r["item_name_en"].ToString().Trim();
+                        item.itemDescription = r["description_en"].ToString().Trim();
+                        item.itemDescriptionVi = r["description"].ToString().Trim();
+                        item.itemID = r["item_id"].ToString();
+
+                        List<string> images = getImgSrouce(item.getItemID());
+                        List<string> categories = new List<string>();
+                        categories.Add(r["category_id1"].ToString());
+                        categories.Add(r["category_id2"].ToString());
+                        categories.Add(r["category_id3"].ToString());
+                        categories.Add(r["category_id4"].ToString());
+                        categories.Add(r["category_id5"].ToString());
+
+                        item.imageList = images;
+                        item.category = categories;
+
+                        listItem.Add(item);
+                        count++;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error("ERROR at : " + ex);
+
+            }
+            return listItem;
         }
+
+       
 
         public string getName()
         {
@@ -118,7 +158,7 @@ namespace EAE_Company.Models
             this.language = HttpContext.Current.Session["language"].ToString().Trim();
 
 
-            if (this.language.Equals("en-US") && null != this.language)
+            if (this.language.Equals("en-US") && null != this.language && !this.itemName.Equals("") && this.itemName != null)
             {
                 return this.itemName;
             }
@@ -126,10 +166,7 @@ namespace EAE_Company.Models
             return this.itemNameVi;
         }
 
-        public string getNameVi()
-        {
-            return this.itemNameVi;
-        }
+      
 
         public string getItemGroup(int code)
         {
@@ -150,20 +187,15 @@ namespace EAE_Company.Models
 
         }
 
-        public string getItemGroup()
-        {
-
-            return itemGroup;
-
-        }
+      
         public string getNameEn()
         {
             return this.itemName;
         }
 
-        public string getCategory()
+        public List<string> getCategory()
         {
-            return this.itemCategory;
+            return this.category;
         }
 
         public string getDescriptionVi()
@@ -175,28 +207,33 @@ namespace EAE_Company.Models
         {
             return this.itemDescription;
         }
-
+ 
 
         public string getPrice()
         {
             return this.itemPrice;
         }
 
-        public string getItemCode()
+       
+        public string getItemID()
         {
-            return this.itemCode;
+            return this.itemID;
         }
         // GET FIRST IMAGE OF LIST IMAGE
         public string getFirstImage()
         {
-            string a = this.imageList[0].ToString();
-            return this.imageList[0].ToString().Trim();
+            if(this.imageList.Count > 0)
+            {
+                return this.imageList[0].ToString().Trim();
+            }
+           
+            return "/assets/pages/img/index-sliders/slide1.jpg";
         }
 
         // GET DESCRIPTION OF ITEM
         public string getDescription()
         {
-            if (LANGUAGE.Equals("en-US"))
+            if (LANGUAGE.Equals("en-US") && this.itemDescription != null && !this.itemDescription.Equals(""))
             {
                 return this.itemDescription;
             }
@@ -209,6 +246,7 @@ namespace EAE_Company.Models
         {
             return this.imageList;
         }
+
         public Item loadINFOByCode(string itemID)
         {
             Item item = new Item();
@@ -217,7 +255,7 @@ namespace EAE_Company.Models
             {
                 sQuery = @"SELECT * FROM item 
                 WHERE  
-                ID ={0} ";
+                item_id ={0} ";
                 sQuery = string.Format(sQuery, itemID);
                 DataSet ds = SqlHelper.ExecuteDataset(ClsCommons.connectionStr, CommandType.Text, sQuery);
                 if (ds.Tables.Count > 0)
@@ -226,12 +264,20 @@ namespace EAE_Company.Models
                     while (count < ds.Tables[0].Rows.Count)
                     {
                         DataRow r = ds.Tables[0].Rows[count];
-                        item.itemNameVi = r["Item_Name_Vi"].ToString().Trim();
-                        item.itemName = r["Item_Name_Eng"].ToString().Trim();
-                        item.itemDescription = r["Item_Description_Eng"].ToString().Trim();
-                        item.itemDescriptionVi = r["Item_Description_Vi"].ToString().Trim();
-                        item.itemCode = r["Item_Code"].ToString().Trim();
+                        item.itemNameVi = r["item_name"].ToString().Trim();
+                        item.itemName = r["item_name_en"].ToString().Trim();
+                        item.itemDescription = r["description"].ToString().Trim();
+                        item.itemDescriptionVi = r["description_en"].ToString().Trim();
+                        item.itemID = r["item_id"].ToString().Trim();
                         item.imageList = getImgSrouce(itemID);
+                        List<string> categories = new List<string>();
+                        categories.Add(r["category_id1"].ToString());
+                        categories.Add(r["category_id2"].ToString());
+                        categories.Add(r["category_id3"].ToString());
+                        categories.Add(r["category_id4"].ToString());
+                        categories.Add(r["category_id5"].ToString());
+                        item.category = categories;
+
                         count++;
                     }
                 }
@@ -252,7 +298,7 @@ namespace EAE_Company.Models
             string sQuery = "";
             try
             {
-                sQuery = @"SELECT * FROM images WHERE Item_ID ='{0}' AND is_Active = '1';  ";
+                sQuery = @"SELECT * FROM item_images WHERE item_id ='{0}' AND is_Active = '1';  ";
                 sQuery = string.Format(sQuery, itemID);
                 DataSet ds = SqlHelper.ExecuteDataset(ClsCommons.connectionStr, CommandType.Text, sQuery);
                 if (ds.Tables.Count > 0)
@@ -261,7 +307,7 @@ namespace EAE_Company.Models
                     while (count < ds.Tables[0].Rows.Count)
                     {
                         DataRow r = ds.Tables[0].Rows[count];
-                        li.Add(r["Image_URL"].ToString().Trim());
+                        li.Add(r["image_address"].ToString().Trim());
                         count++;
                     }
                 }
@@ -313,7 +359,7 @@ namespace EAE_Company.Models
                         item.itemName = r["Item_Name_Eng"].ToString().Trim();
                         item.itemDescription = r["Item_Description_Eng"].ToString().Trim();
                         item.itemDescriptionVi = r["Item_Description_Vi"].ToString().Trim();
-                        item.itemCode = r["ID"].ToString();
+                        item.itemID = r["ID"].ToString();
                         string img = r["Image_URL"].ToString().TrimEnd().TrimStart();
                         List<string> imgs = new List<string>();
                         imgs.Add(img);
@@ -331,42 +377,53 @@ namespace EAE_Company.Models
             }
             return listItem;
         }
-
-        public void insertItem(Item item)
+        public string getNameVi()
         {
-            try
-            {
-                string sQuery = @" INSERT INTO [dbo].[item]
-           ([Category_Code]
-           ,[Item_Name_Vi]
-           ,[Item_Name_Eng]
-           ,[Item_Description_Vi]
-           ,[Item_Description_Eng]
-           ,[Item_Price]
-           ,[Item_Group])
-            VALUES ('{0}', '{1}', '{2}', '{3}' , '{4}', '{5}','{6}')";
-                decimal price = 0;
-                if(item.getPrice().Length > 1)
-                {
-                    price = decimal.Parse( item.getPrice().Trim());
-                }
-
-                sQuery = string.Format(sQuery, item.getCategory(), item.getNameVi(), item.getNameEn(),
-                    item.getDescriptionVi(), item.getDescriptionEn(), price, item.getItemGroup());
-                SqlConnection con = new SqlConnection(ClsCommons.connectionStr);
-                SqlCommand command = new SqlCommand(sQuery, con);
-                con.Open();
-                command.ExecuteNonQuery();
-                con.Close();
-                log.Info("Insert item " + item.getNameVi() + "success ! ");
-
-            }
-            catch (Exception ex)
-            {
-                log.Error("ERROR INSERT ITEM at : " + ex);
-
-            }
+            return this.itemNameVi;
         }
+
+        //public void insertItem(Item item)
+        //{
+        //    try
+        //    {
+        //        string sQuery = @" INSERT INTO [dbo].[item]
+        //   ([item_name_en]
+        //   ,[item_name]
+        //   ,[category_id1]
+        //   ,[category_id2]
+        //   ,[category_id3]
+        //   ,[category_id4]
+        //   ,[category_id5]
+        //   ,[description_en]
+        //   ,[description]
+        //   ,[weight]
+        //   ,[volume]
+        //   ,[size]
+        //   ,[item_name_vi]
+        //  )
+        //    VALUES ('{0}', '{1}', '{2}', '{3}' , '{4}', '{5}','{6}')";
+        //        decimal price = 0;
+        //        if(item.getPrice().Length > 1)
+        //        {
+        //            price = decimal.Parse( item.getPrice().Trim());
+        //        }
+
+        //        sQuery = string.Format(sQuery, item.getCategory(), item.getNameVi(), item.getNameEn(),
+        //            item.getDescriptionVi(), item.getDescriptionEn(), price, item.getItemGroup());
+        //        SqlConnection con = new SqlConnection(ClsCommons.connectionStr);
+        //        SqlCommand command = new SqlCommand(sQuery, con);
+        //        con.Open();
+        //        command.ExecuteNonQuery();
+        //        con.Close();
+        //        log.Info("Insert item " + item.getNameVi() + "success ! ");
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        log.Error("ERROR INSERT ITEM at : " + ex);
+
+        //    }
+        //}
 
     }
 }

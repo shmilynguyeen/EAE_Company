@@ -11,22 +11,22 @@ namespace EAE_Company
     {
          void Page_Load(object sender, EventArgs e)
         {
-            String a = "";
+            
         }
 
       
 
-        protected void send_comment_Click(object sender, EventArgs e)
-        {
-            String id = comment_email.Text;
-            String user_name = comment_name.Text;
+        //protected void send_comment_Click(object sender, EventArgs e)
+        //{
+        //    String id = comment_email.Text;
+        //    String user_name = comment_name.Text;
 
-        }
+        //}
 
 
         protected void Unnamed_Click1(object sender, EventArgs e)
         {
-            String test = "abc";
+          
         }
     }
 }

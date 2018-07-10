@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="capacitor" xml:space="preserve">
+   <data name="capacitor" xml:space="preserve">
     <value>Tụ Điện</value>
   </data>
   <data name="checkout" xml:space="preserve">
@@ -263,5 +263,113 @@
   </data>
   <data name="twoItems" xml:space="preserve">
     <value>Dịch Vụ Lắp Đặt Bảo Trì - Sữa Chữa Máy Dệt - Nhuộm</value>
+  </data>
+  <data name="titleSlide1a" xml:space="preserve">
+    <value>Giải pháp tự động hóa </value>
+  </data>
+  <data name="titleSlide1b" xml:space="preserve">
+    <value>cung cấp thiết bị máy móc ngành dệt nhuộm may </value>
+  </data>
+  <data name="resistor" xml:space="preserve">
+    <value>Điện Trở</value>
+  </data>
+  <data name="Contrast_sensor" xml:space="preserve">
+    <value>Cảm biến tương phản</value>
+  </data>
+  <data name="Distance_sensor" xml:space="preserve">
+    <value>Cảm biến khoảng cách</value>
+  </data>
+  <data name="Inductive_sensor" xml:space="preserve">
+    <value>Cảm biến điện cảm </value>
+  </data>
+  <data name="Infrared_sensor" xml:space="preserve">
+    <value>Cảm biến hồng ngoại</value>
+  </data>
+  <data name="Optical_sensors" xml:space="preserve">
+    <value>Cảm biến quang  </value>
+  </data>
+  <data name="Pressure_sensors" xml:space="preserve">
+    <value>Cảm biến áp suất</value>
+  </data>
+  <data name="Proximity_sensor" xml:space="preserve">
+    <value>Cảm biến tiệm cận</value>
+  </data>
+  <data name="Temperature_sensor" xml:space="preserve">
+    <value>Cảm biến nhiệt độ</value>
+  </data>
+  <data name="Ultrasonic_sensors" xml:space="preserve">
+    <value>Cảm biến siêu âm</value>
+  </data>
+  <data name="searchResult" xml:space="preserve">
+    <value>Kết quả tìm kiếm </value>
+  </data>
+  <data name="product" xml:space="preserve">
+    <value>SẢN PHẨM </value>
+  </data>
+  <data name="searching" xml:space="preserve">
+    <value>TÌM KIẾM</value>
+  </data>
+  <data name="dyeing" xml:space="preserve">
+    <value>Ngành Nhuộm</value>
+  </data>
+  <data name="garment" xml:space="preserve">
+    <value>Ngành May</value>
+  </data>
+  <data name="textile" xml:space="preserve">
+    <value>Ngành Dệt</value>
+  </data>
+  <data name="Height" xml:space="preserve">
+    <value>Chiều cao</value>
+  </data>
+  <data name="Long" xml:space="preserve">
+    <value>Chiều dài</value>
+  </data>
+  <data name="Width" xml:space="preserve">
+    <value>Chiều rộng</value>
+  </data>
+  <data name="about_us" xml:space="preserve">
+    <value>VỀ CHÚNG TÔI</value>
+  </data>
+  <data name="about_us_txt" xml:space="preserve">
+    <value>Công ty kỹ thuật dịch vụ EAE</value>
+  </data>
+  <data name="careers" xml:space="preserve">
+    <value>Việc Làm</value>
+  </data>
+  <data name="contact_us" xml:space="preserve">
+    <value>Liên Hệ </value>
+  </data>
+  <data name="customer_care" xml:space="preserve">
+    <value>Dịch vụ chăm sóc khách hàng 24/7</value>
+  </data>
+  <data name="customer_service" xml:space="preserve">
+    <value>Dịch vụ khách hàng</value>
+  </data>
+  <data name="daily_gifts" xml:space="preserve">
+    <value>Quà tặng </value>
+  </data>
+  <data name="delivery_infomation" xml:space="preserve">
+    <value>Thông tin giao hàng</value>
+  </data>
+  <data name="express_delivery" xml:space="preserve">
+    <value>Giao hàng nhanh với 3 ngày</value>
+  </data>
+  <data name="express_delivery_title" xml:space="preserve">
+    <value>Giao hàng nhanh với 3 ngày</value>
+  </data>
+  <data name="gifts" xml:space="preserve">
+    <value>Quà tặng khuyến mãi</value>
+  </data>
+  <data name="information" xml:space="preserve">
+    <value>THÔNG TIN</value>
+  </data>
+  <data name="latestTweet" xml:space="preserve">
+    <value>TWEETS MỚI NHẤT</value>
+  </data>
+  <data name="our_contacts" xml:space="preserve">
+    <value>Liên Hệ</value>
+  </data>
+  <data name="payment" xml:space="preserve">
+    <value>Phương thức thanh toán</value>
   </data>
 </root>

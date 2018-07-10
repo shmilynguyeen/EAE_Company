@@ -106,7 +106,7 @@
                         <div class="div-square">
                             <a href="admin_management.aspx">
                                 <i class="fa fa-circle-o-notch fa-5x"></i>
-                                <h4>Product </h4>
+                                <h4>Category </h4>
                             </a>
                         </div>
 
@@ -115,9 +115,9 @@
 
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
-                            <a href="admin_Services.aspx">
+                            <a href="admin_items.aspx">
                                 <i class="fa fa-envelope-o fa-5x"></i>
-                                <h4>Services</h4>
+                                <h4>Productions</h4>
                             </a>
                         </div>
 
@@ -125,7 +125,7 @@
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                         <div class="div-square">
-                            <a href="admin_ItemList.aspx">
+                            <a href="admin_category.aspx">
                                 <i class="fa fa-lightbulb-o fa-5x"></i>
                                 <h4>Item Category</h4>
                             </a>

@@ -38,15 +38,15 @@ namespace EAE_Company
 
         protected void Session_Start(object sender, EventArgs e)
         {
-            //Response.Redirect("~/Home.aspx");
+            //Response.Redirect("~/Default.aspx");
             string language = Thread.CurrentThread.CurrentCulture.Name;
             Session["language"] = language;
 
             //Load Item List for home pages
             Item item = new Item();
-            List<Item> newArrivals = item.getItems(0);
-            List<Item> threeItems = item.getItems(3);
-            List<Item> twoItems = item.getItems(2);
+            List<Item> newArrivals = item.getItems(75);
+            List<Item> threeItems = item.getItems(60);
+            List<Item> twoItems = item.getItems(79);
             Session["newArrivals"] = newArrivals;
             Session["threeItems"] = threeItems;
             Session["twoItems"] = twoItems;

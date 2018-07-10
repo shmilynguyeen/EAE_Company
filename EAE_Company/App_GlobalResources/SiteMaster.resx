@@ -267,4 +267,112 @@
   <data name="twoItems" xml:space="preserve">
     <value>Maintenance -Setting Services - Textile - Dyeing Machines</value>
   </data>
+  <data name="titleSlide1a" xml:space="preserve">
+    <value>Provide an solution for automation electrical</value>
+  </data>
+  <data name="titleSlide1b" xml:space="preserve">
+    <value>maintenance and setting textile machine.</value>
+  </data>
+  <data name="resistor" xml:space="preserve">
+    <value>Resistor</value>
+  </data>
+  <data name="Contrast_sensor" xml:space="preserve">
+    <value>Contrast sensor</value>
+  </data>
+  <data name="Distance_sensor" xml:space="preserve">
+    <value>Distance sensor</value>
+  </data>
+  <data name="Inductive_sensor" xml:space="preserve">
+    <value>Inductive sensor</value>
+  </data>
+  <data name="Infrared_sensor" xml:space="preserve">
+    <value>Infrared sensor</value>
+  </data>
+  <data name="Optical_sensors" xml:space="preserve">
+    <value>Optical sensors</value>
+  </data>
+  <data name="Pressure_sensors" xml:space="preserve">
+    <value>Pressure sensors</value>
+  </data>
+  <data name="Proximity_sensor" xml:space="preserve">
+    <value>Proximity sensor</value>
+  </data>
+  <data name="Temperature_sensor" xml:space="preserve">
+    <value>Temperature sensor</value>
+  </data>
+  <data name="Ultrasonic_sensors" xml:space="preserve">
+    <value>Ultrasonic sensors</value>
+  </data>
+  <data name="searchResult" xml:space="preserve">
+    <value>Search result with </value>
+  </data>
+  <data name="product" xml:space="preserve">
+    <value>PRODUCTS</value>
+  </data>
+  <data name="searching" xml:space="preserve">
+    <value>SEARCHING</value>
+  </data>
+  <data name="dyeing" xml:space="preserve">
+    <value>Dyeing Industry</value>
+  </data>
+  <data name="garment" xml:space="preserve">
+    <value>Garment Industry</value>
+  </data>
+  <data name="textile" xml:space="preserve">
+    <value>Textile Industry</value>
+  </data>
+  <data name="Height" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="Long" xml:space="preserve">
+    <value>Long</value>
+  </data>
+  <data name="Width" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="about_us" xml:space="preserve">
+    <value>ABOUT US</value>
+  </data>
+  <data name="about_us_txt" xml:space="preserve">
+    <value>EAE company</value>
+  </data>
+  <data name="careers" xml:space="preserve">
+    <value>Careers </value>
+  </data>
+  <data name="contact_us" xml:space="preserve">
+    <value>Contact Us</value>
+  </data>
+  <data name="customer_care" xml:space="preserve">
+    <value>24/7 customer care available</value>
+  </data>
+  <data name="customer_service" xml:space="preserve">
+    <value>Customer Service</value>
+  </data>
+  <data name="daily_gifts" xml:space="preserve">
+    <value>DAILY GIFTS</value>
+  </data>
+  <data name="delivery_infomation" xml:space="preserve">
+    <value>Delivery Information</value>
+  </data>
+  <data name="express_delivery" xml:space="preserve">
+    <value>Express delivery withing 3 days</value>
+  </data>
+  <data name="express_delivery_title" xml:space="preserve">
+    <value>DELIVERY EXPRESS</value>
+  </data>
+  <data name="gifts" xml:space="preserve">
+    <value>promotion for lucky customers</value>
+  </data>
+  <data name="information" xml:space="preserve">
+    <value>INFORMATION</value>
+  </data>
+  <data name="latestTweet" xml:space="preserve">
+    <value>Latest Tweets</value>
+  </data>
+  <data name="our_contacts" xml:space="preserve">
+    <value>OUT CONTACTS</value>
+  </data>
+  <data name="payment" xml:space="preserve">
+    <value>Payment Methods</value>
+  </data>
 </root>
