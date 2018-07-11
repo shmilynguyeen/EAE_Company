@@ -120,7 +120,7 @@
                         <ul class="list-unstyled list-inline pull-right"  ">
                             <li><a href="#">
                                 <asp:Label runat="server"  Text="<%$ Resources:SiteMaster, myAccount %>"></asp:Label></a></li>
-                            <li><a href="page-login.html"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, login %>"></asp:Label></a></li>
+                            <li><a href="Login.aspx"><asp:Label runat="server" Text="<%$ Resources:SiteMaster, login %>"></asp:Label></a></li>
                         </ul>
                     </div>
                     <!-- END TOP BAR MENU -->

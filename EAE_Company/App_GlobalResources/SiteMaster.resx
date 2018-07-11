@@ -375,4 +375,10 @@
   <data name="payment" xml:space="preserve">
     <value>Payment Methods</value>
   </data>
+  <data name="Availability" xml:space="preserve">
+    <value>Availability</value>
+  </data>
+  <data name="instock" xml:space="preserve">
+    <value>In Stock</value>
+  </data>
 </root>

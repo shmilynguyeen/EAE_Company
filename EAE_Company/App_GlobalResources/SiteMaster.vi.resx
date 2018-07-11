@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-   <data name="capacitor" xml:space="preserve">
+  <data name="capacitor" xml:space="preserve">
     <value>Tụ Điện</value>
   </data>
   <data name="checkout" xml:space="preserve">
@@ -371,5 +371,11 @@
   </data>
   <data name="payment" xml:space="preserve">
     <value>Phương thức thanh toán</value>
+  </data>
+  <data name="Availability" xml:space="preserve">
+    <value>Tình Trạng</value>
+  </data>
+  <data name="instock" xml:space="preserve">
+    <value>Còn Hàng</value>
   </data>
 </root>

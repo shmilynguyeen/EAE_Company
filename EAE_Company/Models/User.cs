@@ -15,6 +15,7 @@ namespace EAE_Company.Models
         private string userName { get; set; }
         private string password { get; set; }
         private string role { get; set; }
+        private string userId { get; set; }
 
         public User()
         {
@@ -56,6 +57,10 @@ namespace EAE_Company.Models
             return false;
         }
 
+        public string getUserId()
+        {
+            return this.userId;
+        }
 
         public User getUserInfo()
         {
@@ -78,6 +83,7 @@ namespace EAE_Company.Models
                         user.role = r["Role"].ToString();
                         user.userName = r["UserName"].ToString();
                         user.password = r["PassWord"].ToString();
+                        user.userId = r["Row_ID"].ToString();
                     }
                 }
             }

@@ -41,7 +41,7 @@
                             <%--<em>$<span>62.00</span></em>--%>
                         </div>
                         <div class="availability">
-                            Availability: <strong>In Stock</strong>
+                                <asp:Label runat="server" Text="<%$ Resources:SiteMaster, Availability %>"> </asp:Label> : <strong>     <asp:Label runat="server" Text="<%$ Resources:SiteMaster, instock  %>"> </asp:Label></strong>
                         </div>
                     </div>
                     <div class="description">
@@ -49,19 +49,6 @@
                             <%= item.getDescription() %>
                         </p>
                     </div>
-                    <div class="review">
-                        <input type="range" value="4" step="0.25" id="backing4">
-                        <div class="rateit" data-rateit-backingfld="#backing4" data-rateit-resetable="false" data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5">
-                        </div>
-                        <a href="javascript:;">7 reviews</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:;">Write a review</a>
-                    </div>
-                    <ul class="social-icons">
-                        <li><a class="facebook" data-original-title="facebook" href="javascript:;"></a></li>
-                        <li><a class="twitter" data-original-title="twitter" href="javascript:;"></a></li>
-                        <li><a class="googleplus" data-original-title="googleplus" href="javascript:;"></a></li>
-                        <li><a class="evernote" data-original-title="evernote" href="javascript:;"></a></li>
-                        <li><a class="tumblr" data-original-title="tumblr" href="javascript:;"></a></li>
-                    </ul>
                 </div>
 
                 <div class="product-page-content">

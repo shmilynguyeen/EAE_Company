@@ -97,16 +97,7 @@
 
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <h5>Item Information</h5>
-                        <div class="input-group">
-                            <span class="input-group-addon">Category</span>
-                            <asp:DropDownList runat="server" class="form-control" ID="dropdownCategoryCode">
-                                <asp:ListItem Value="MAY_DET">MAY_DET</asp:ListItem>
-                                <asp:ListItem Value="MAY_HO_SOI">MAY_HO_SOI</asp:ListItem>
-                                <asp:ListItem Value="DICH_VU">DICH_VU</asp:ListItem>
-                                <asp:ListItem Value="TBMMND">TBMMND</asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                        <br />
+                       
                         <div class="input-group">
                             <span class="input-group-addon">Item name (vi)</span>
                             <asp:TextBox runat="server" ID="txtItemNameVi" type="text" class="form-control" placeholder="Item name (vi)" />
@@ -127,6 +118,36 @@
                             <asp:TextBox runat="server" ID="txtDescriptionEn" type="text" class="form-control" placeholder="Description(en)" />
                         </div>
                         <br />
+                         <div class="input-group">
+                            <span class="input-group-addon">Category 1 </span>
+                            <asp:DropDownList runat="server" class="form-control" ID="DropDownList1">
+                            </asp:DropDownList>
+                        </div>
+                        <br />
+                         <div class="input-group">
+                            <span class="input-group-addon">Category 2</span>
+                            <asp:DropDownList runat="server" class="form-control" ID="DropDownList2">
+                            </asp:DropDownList>
+                        </div>
+                        <br />
+                         <div class="input-group">
+                            <span class="input-group-addon">Category 3</span>
+                            <asp:DropDownList runat="server" class="form-control" ID="DropDownList3">
+                            </asp:DropDownList>
+                        </div>
+                        <br />
+                         <div class="input-group">
+                            <span class="input-group-addon">Category 4 </span>
+                            <asp:DropDownList runat="server" class="form-control" ID="DropDownList4">
+                            </asp:DropDownList>
+                        </div>
+                        <br />
+                         <div class="input-group">
+                            <span class="input-group-addon">Category 5 </span>
+                            <asp:DropDownList runat="server" class="form-control" ID="DropDownList5">
+                            </asp:DropDownList>
+                        </div>
+                        <br />
                         <div class="input-group">
                             <span class="input-group-addon">Price</span>
                             <asp:TextBox runat="server" ID="txtPrice" type="text" class="form-control" placeholder="Price" />
@@ -134,15 +155,7 @@
                         </div>
                         <br />
 
-                        <div class="input-group">
-                            <span class="input-group-addon">Group</span>
-                            <asp:DropDownList runat="server" class="form-control" ID="txtGroup">
-                                <asp:ListItem Value="0">Provide Machines</asp:ListItem>
-                                <asp:ListItem Value="3">Services</asp:ListItem>
-                                <asp:ListItem Value="2">Mantain & Setting</asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                        <br />
+                  
 
                     </div>
 
@@ -216,16 +229,15 @@
                         <br />
                         <h5>Select Processing </h5>
 
-                        <asp:FileUpload Style="margin-left: 20px" ID="FileUpload1" name="FileUpload1" runat="server" AllowMultiple="true" />
-                        <asp:Label runat="server" ID="lbOutput"></asp:Label>
+                        <asp:FileUpload ID="FileUpload1" Multiple="Multiple" runat="server" />
                         <asp:Button runat="server" ID="btnsave" OnClick="btnsave_Click" class="btn btn-success" Text="Create New Item" />
                         <asp:Button runat="server" ID="btnPreview" OnClick="btnPreview_Click" class="btn btn-info" Text="Preview Images" />
-                        <asp:RegularExpressionValidator
+                        <%--<asp:RegularExpressionValidator
                             ID="RegularExpressionValidator1"
                             runat="server"
                             ErrorMessage="Only zip file is allowed!"
                             ValidationExpression="^.+(.jpg|.JPG|.png}.PNG)$"
-                            ControlToValidate="FileUpload1"> </asp:RegularExpressionValidator>
+                            ControlToValidate="FileUpload1"> </asp:RegularExpressionValidator>--%>
                         <%--<asp:Button runat="server" ID="btnDelete" OnClick="btnDelete_Click" class="btn btn-danger" Text="Delete" />--%>
                         </div>
                     </div>

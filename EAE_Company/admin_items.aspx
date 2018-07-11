@@ -1,4 +1,4 @@
-﻿<%@ Page Title="admin_Services" Language="C#" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="admin_items.aspx.cs" Inherits="EAE_Company.admin_items" %>
+﻿<%@ Page Title="admin_Services" Language="C#" EnableEventValidation="false"  CodeBehind="admin_items.aspx.cs" Inherits="EAE_Company.admin_items" %>
 
 <%@ Import Namespace="EAE_Company.Models" %>
 <!DOCTYPE html>
@@ -100,18 +100,18 @@
                         <div class="col-lg-12 col-md-12">
                             <h4>Category Management</h4>
                             <asp:GridView ID="GridView1" runat="server" DataKeyNames="item_id" AutoGenerateColumns="false" AllowPaging="true"
-                                OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="10" class="table table-striped table-bordered table-hover"
+                                OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="20" class="table table-striped table-bordered table-hover"
                                 OnRowEditing="GridView1_RowEditing" OnRowDeleting="GridView1_RowDeleting" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit"
-                                HeaderStyle-HorizontalAlign="Left" >
+                                HeaderStyle-HorizontalAlign="Left"  PagerSettings-Mode="NumericFirstLast" PagerSettings-Visible="true"    >
                                 <Columns>
-                                    <asp:BoundField ItemStyle-Width="150px" DataField="item_id" HeaderText="ID" />
+                                    <asp:BoundField ItemStyle-Width="50px" DataField="item_id" HeaderText="ID" />
                                     <asp:BoundField ItemStyle-Width="150px" DataField="item_name" HeaderText="Item Name (Vi)" />
                                     <asp:BoundField ItemStyle-Width="150px" DataField="item_name_en" HeaderText="Item Name (En)" />
-                                    <asp:BoundField ItemStyle-Width="150px" DataField="category_id1" HeaderText="Category Code 1" />
-                                    <asp:BoundField ItemStyle-Width="150px" DataField="category_id2" HeaderText="Category Code 2" />
-                                    <asp:BoundField ItemStyle-Width="150px" DataField="category_id3" HeaderText="Category Code 3" />
-                                    <asp:BoundField ItemStyle-Width="150px" DataField="category_id4" HeaderText="Category Code 4" />
-                                    <asp:BoundField ItemStyle-Width="150px" DataField="category_id5" HeaderText="Category Code 5" />
+                                    <asp:BoundField ItemStyle-Width="150px" DataField="category_name1" HeaderText="Category Code 1" />
+                                    <asp:BoundField ItemStyle-Width="150px" DataField="category_name2" HeaderText="Category Code 2" />
+                                    <asp:BoundField ItemStyle-Width="150px" DataField="category_name3" HeaderText="Category Code 3" />
+                                    <asp:BoundField ItemStyle-Width="150px" DataField="category_name4" HeaderText="Category Code 4" />
+                                    <asp:BoundField ItemStyle-Width="150px" DataField="category_name5" HeaderText="Category Code 5" />
                                     <asp:BoundField ItemStyle-Width="150px" DataField="description" HeaderText="Description (Vi)" />
                                     <asp:BoundField ItemStyle-Width="150px" DataField="description_en" HeaderText="Description (En)" />
                                     <%--<asp:BoundField ItemStyle-Width="150px" DataField="price" HeaderText="Item Price" />--%>

@@ -19,7 +19,7 @@ namespace Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option or rebuild the Visual Studio project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "14.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class SiteMaster {
@@ -88,11 +88,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ABOUT US.
+        /// </summary>
+        internal static string about_us {
+            get {
+                return ResourceManager.GetString("about_us", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EAE company.
+        /// </summary>
+        internal static string about_us_txt {
+            get {
+                return ResourceManager.GetString("about_us_txt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add To Cart.
         /// </summary>
         internal static string addToCart {
             get {
                 return ResourceManager.GetString("addToCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Availability.
+        /// </summary>
+        internal static string Availability {
+            get {
+                return ResourceManager.GetString("Availability", resourceCulture);
             }
         }
         
@@ -106,11 +133,74 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Careers .
+        /// </summary>
+        internal static string careers {
+            get {
+                return ResourceManager.GetString("careers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Checkout.
         /// </summary>
         internal static string checkout {
             get {
                 return ResourceManager.GetString("checkout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact Us.
+        /// </summary>
+        internal static string contact_us {
+            get {
+                return ResourceManager.GetString("contact_us", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contrast sensor.
+        /// </summary>
+        internal static string Contrast_sensor {
+            get {
+                return ResourceManager.GetString("Contrast_sensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 24/7 customer care available.
+        /// </summary>
+        internal static string customer_care {
+            get {
+                return ResourceManager.GetString("customer_care", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customer Service.
+        /// </summary>
+        internal static string customer_service {
+            get {
+                return ResourceManager.GetString("customer_service", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DAILY GIFTS.
+        /// </summary>
+        internal static string daily_gifts {
+            get {
+                return ResourceManager.GetString("daily_gifts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delivery Information.
+        /// </summary>
+        internal static string delivery_infomation {
+            get {
+                return ResourceManager.GetString("delivery_infomation", resourceCulture);
             }
         }
         
@@ -133,6 +223,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Distance sensor.
+        /// </summary>
+        internal static string Distance_sensor {
+            get {
+                return ResourceManager.GetString("Distance_sensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dyeing Industry.
+        /// </summary>
+        internal static string dyeing {
+            get {
+                return ResourceManager.GetString("dyeing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Electronic Automation.
         /// </summary>
         internal static string electronicAutomation {
@@ -142,11 +250,65 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Express delivery withing 3 days.
+        /// </summary>
+        internal static string express_delivery {
+            get {
+                return ResourceManager.GetString("express_delivery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DELIVERY EXPRESS.
+        /// </summary>
+        internal static string express_delivery_title {
+            get {
+                return ResourceManager.GetString("express_delivery_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Garment Industry.
+        /// </summary>
+        internal static string garment {
+            get {
+                return ResourceManager.GetString("garment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to promotion for lucky customers.
+        /// </summary>
+        internal static string gifts {
+            get {
+                return ResourceManager.GetString("gifts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Height.
+        /// </summary>
+        internal static string Height {
+            get {
+                return ResourceManager.GetString("Height", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to HMI Mitsubishi.
         /// </summary>
         internal static string HMI_Mitsubishi {
             get {
                 return ResourceManager.GetString("HMI_Mitsubishi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inductive sensor.
+        /// </summary>
+        internal static string Inductive_sensor {
+            get {
+                return ResourceManager.GetString("Inductive_sensor", resourceCulture);
             }
         }
         
@@ -169,11 +331,56 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to INFORMATION.
+        /// </summary>
+        internal static string information {
+            get {
+                return ResourceManager.GetString("information", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Infrared sensor.
+        /// </summary>
+        internal static string Infrared_sensor {
+            get {
+                return ResourceManager.GetString("Infrared_sensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In Stock.
+        /// </summary>
+        internal static string instock {
+            get {
+                return ResourceManager.GetString("instock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Latest Tweets.
+        /// </summary>
+        internal static string latestTweet {
+            get {
+                return ResourceManager.GetString("latestTweet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         internal static string login {
             get {
                 return ResourceManager.GetString("login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Long.
+        /// </summary>
+        internal static string Long {
+            get {
+                return ResourceManager.GetString("Long", resourceCulture);
             }
         }
         
@@ -367,6 +574,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Optical sensors.
+        /// </summary>
+        internal static string Optical_sensors {
+            get {
+                return ResourceManager.GetString("Optical_sensors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OUT CONTACTS.
+        /// </summary>
+        internal static string our_contacts {
+            get {
+                return ResourceManager.GetString("our_contacts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payment Methods.
+        /// </summary>
+        internal static string payment {
+            get {
+                return ResourceManager.GetString("payment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PLC Mitsubishi.
         /// </summary>
         internal static string PLC_Mitsubishi {
@@ -394,11 +628,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pressure sensors.
+        /// </summary>
+        internal static string Pressure_sensors {
+            get {
+                return ResourceManager.GetString("Pressure_sensors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact.
         /// </summary>
         internal static string price {
             get {
                 return ResourceManager.GetString("price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PRODUCTS.
+        /// </summary>
+        internal static string product {
+            get {
+                return ResourceManager.GetString("product", resourceCulture);
             }
         }
         
@@ -412,11 +664,47 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Proximity sensor.
+        /// </summary>
+        internal static string Proximity_sensor {
+            get {
+                return ResourceManager.GetString("Proximity_sensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resistor.
+        /// </summary>
+        internal static string resistor {
+            get {
+                return ResourceManager.GetString("resistor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reviews.
         /// </summary>
         internal static string review {
             get {
                 return ResourceManager.GetString("review", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SEARCHING.
+        /// </summary>
+        internal static string searching {
+            get {
+                return ResourceManager.GetString("searching", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search result with .
+        /// </summary>
+        internal static string searchResult {
+            get {
+                return ResourceManager.GetString("searchResult", resourceCulture);
             }
         }
         
@@ -484,6 +772,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Temperature sensor.
+        /// </summary>
+        internal static string Temperature_sensor {
+            get {
+                return ResourceManager.GetString("Temperature_sensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Textile Industry.
+        /// </summary>
+        internal static string textile {
+            get {
+                return ResourceManager.GetString("textile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Textile Equipment.
         /// </summary>
         internal static string textileEquipment {
@@ -502,11 +808,47 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Provide an solution for automation electrical.
+        /// </summary>
+        internal static string titleSlide1a {
+            get {
+                return ResourceManager.GetString("titleSlide1a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to maintenance and setting textile machine..
+        /// </summary>
+        internal static string titleSlide1b {
+            get {
+                return ResourceManager.GetString("titleSlide1b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Maintenance -Setting Services - Textile - Dyeing Machines.
         /// </summary>
         internal static string twoItems {
             get {
                 return ResourceManager.GetString("twoItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ultrasonic sensors.
+        /// </summary>
+        internal static string Ultrasonic_sensors {
+            get {
+                return ResourceManager.GetString("Ultrasonic_sensors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Width.
+        /// </summary>
+        internal static string Width {
+            get {
+                return ResourceManager.GetString("Width", resourceCulture);
             }
         }
     }

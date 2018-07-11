@@ -5,9 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>EAE Login</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/my-login.css">
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/my-login.css"/>
 </head>
 <body  class="my-login-page">
     <form id="form1" runat="server">
@@ -15,9 +15,12 @@
 		<div class="container h-100">
 			<div class="row justify-content-md-center h-100">
 				<div class="card-wrapper">
-					<div class="brand">
-						<img src="img/logo.jpg">
-					</div>
+					<%--<div class="brand">
+						<img src="assets/corporate/img/logos/logo-shop-red.png" style="width : auto">
+					</div>--%> 
+                    <div >
+                        <img src="assets/corporate/img/logos/logo-shop-red.png" style="margin :40px auto ;padding-left : 120px ;"/>
+                    </div>
 					<div class="card fat">
 						<div class="card-body">
 							<h4 class="card-title">Login</h4>
