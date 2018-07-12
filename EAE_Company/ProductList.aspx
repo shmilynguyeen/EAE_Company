@@ -49,7 +49,7 @@
 
                         Item item = new Item();
                         List<Item> list_item = new List<Item>();
-                        list_item = item.searchItem(key_search, language);
+                        list_item = item.searchItem(key_search);
                         int total_item = list_item.Count();
                         int index = 0;
                         for (int i = min_page; i < total_item; i++)

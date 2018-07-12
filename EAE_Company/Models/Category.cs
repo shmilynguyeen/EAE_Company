@@ -34,7 +34,7 @@ namespace EAE_Company.Models
             try
             {
                 sQuery = @"SELECT  [Category_Code],[Category_Name_Vi],[Category_Name_Eng]
-                      FROM [DB_EAE].[dbo].[category]
+                      FROM [category]
                       WHERE Is_Active is not null";
 
                 sQuery = string.Format(sQuery);

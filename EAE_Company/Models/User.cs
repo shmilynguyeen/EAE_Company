@@ -35,7 +35,7 @@ namespace EAE_Company.Models
             try
             {
                 string sQuery = @"SELECT *
-                  FROM [DB_EAE].[dbo].[user]
+                  FROM [user]
                   where UserName = '{0}' and PassWord = '{1}' and Is_Active is not null ";
 
 
@@ -69,7 +69,7 @@ namespace EAE_Company.Models
             {
                 
                 string sQuery = @"SELECT *
-                  FROM [DB_EAE].[dbo].[user]
+                  FROM [user]
                   where UserName = '{0}' and PassWord = '{1}' and Is_Active is not null ";
 
 

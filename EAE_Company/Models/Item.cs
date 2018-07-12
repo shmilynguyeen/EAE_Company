@@ -6,6 +6,7 @@ using Microsoft.ApplicationBlocks.Data;
 using EAE_Company.Commons;
 using System.Web;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace EAE_Company.Models
 {
@@ -32,6 +33,7 @@ namespace EAE_Company.Models
 
 
 
+
         public Item()
         {
 
@@ -46,8 +48,51 @@ namespace EAE_Company.Models
             this.imageList = imgs;
         }
 
+        public Item(string id , List<string> category, string nameVi, string name, string desVi, string des, List<string> imgs)
+        {
+            this.itemID = id;
+            this.category = category;
+            this.itemName = name;
+            this.itemNameVi = nameVi;
+            this.itemDescription = des;
+            this.itemDescriptionVi = desVi;
+            this.imageList = imgs;
+        }
 
-        public List<Item> findSimilarItems()
+        public void setItemId(string id)
+        {
+            this.itemID = id;
+        }
+
+        public void setItemName(string name)
+        {
+            this.itemNameVi = name;
+        }
+
+        public void setItemNameEn(string name)
+        {
+            this.itemName = name;
+        }
+
+        public void setItemDescription(string des)
+        {
+            this.itemDescriptionVi = des;
+        }
+
+        public void setItemDescriptionEn(string des)
+        {
+            this.itemDescription = des;
+        }
+
+        public void setCategory(List<String> category)
+        {
+            this.category = category;
+        }
+
+
+
+
+        public List<Item> findSimilarItems(string category )
         {
             List<Item> listItem = new List<Item>();
             string sQuery = "";
@@ -59,7 +104,7 @@ namespace EAE_Company.Models
 							where i.Is_Active ='1' and (i.category_id1 = '{0}' or i.category_id2 = '{0}' 
                             or i.category_id3 = '{0}'or i.category_id4 = '{0}' or i.category_id5 = '{0}') ";
 
-                sQuery = string.Format(sQuery, this.category[0].ToString());
+                sQuery = string.Format(sQuery, category);
                 DataSet ds = SqlHelper.ExecuteDataset(ClsCommons.connectionStr, CommandType.Text, sQuery);
                 if (ds.Tables.Count > 0)
                 {
@@ -362,32 +407,28 @@ namespace EAE_Company.Models
 
 
         // Method for search item
-        public List<Item> searchItem(String text, String language)
+        public List<Item> searchItem(string keySearch)
         {
             List<Item> listItem = new List<Item>();
             string sQuery = "";
+            if (isNumeric(keySearch))
+            {
+                listItem = findSimilarItems(keySearch);
+            } else
+            {
+
+           
+           
             try
             {
-                if (language.Equals("en-US"))
-                {
-                    sQuery = @" SELECT i.ID , i.Item_Code, i.Item_Name_Vi, i.Item_Name_Eng, 
-                            i.Item_Description_Vi , i.Item_Description_Eng, img.Image_URL from item i 
-                            left join images img on 
-                            img.Item_ID = i.ID 
-							where i.Is_Active ='1' and i.Item_Name_Eng like N'%{0}%'";
+                sQuery = @"  SELECT distinct  i.item_name, i.item_name_en, i.category_id1, i.category_id2, 
+                        i.category_id3, i.category_id4, i.category_id5, i.description , i.description_en ,
+                        i.item_code , i.item_id  from item i 
+                            left join item_images img on 
+                            img.item_id = i.item_id
+							where i.Is_Active ='1' and i.item_name like N'%{0}%' ";
 
-                }
-                else
-                {
-                    sQuery = @" SELECT i.ID , i.Item_Code, i.Item_Name_Vi, i.Item_Name_Eng, 
-                            i.Item_Description_Vi , i.Item_Description_Eng, img.Image_URL from item i 
-                            left join images img on 
-                            img.Item_ID = i.ID 
-							where i.Is_Active ='1' and i.Item_Name_Vi like N'%{0}%'";
-                }
-
-
-                sQuery = string.Format(sQuery, text);
+                sQuery = string.Format(sQuery, keySearch);
                 DataSet ds = SqlHelper.ExecuteDataset(ClsCommons.connectionStr, CommandType.Text, sQuery);
                 if (ds.Tables.Count > 0)
                 {
@@ -396,15 +437,22 @@ namespace EAE_Company.Models
                     {
                         DataRow r = ds.Tables[0].Rows[count];
                         Item item = new Item();
-                        item.itemNameVi = r["Item_Name_Vi"].ToString().Trim();
-                        item.itemName = r["Item_Name_Eng"].ToString().Trim();
-                        item.itemDescription = r["Item_Description_Eng"].ToString().Trim();
-                        item.itemDescriptionVi = r["Item_Description_Vi"].ToString().Trim();
-                        item.itemID = r["ID"].ToString();
-                        string img = r["Image_URL"].ToString().TrimEnd().TrimStart();
-                        List<string> imgs = new List<string>();
-                        imgs.Add(img);
-                        item.imageList = imgs;
+                        item.itemNameVi = r["item_name"].ToString().Trim();
+                        item.itemName = r["item_name_en"].ToString().Trim();
+                        item.itemDescription = r["description_en"].ToString().Trim();
+                        item.itemDescriptionVi = r["description"].ToString().Trim();
+                        item.itemID = r["item_id"].ToString();
+
+                        List<string> images = getImgSrouce(item.getItemID());
+                        List<string> categories = new List<string>();
+                        categories.Add(r["category_id1"].ToString());
+                        categories.Add(r["category_id2"].ToString());
+                        categories.Add(r["category_id3"].ToString());
+                        categories.Add(r["category_id4"].ToString());
+                        categories.Add(r["category_id5"].ToString());
+
+                        item.imageList = images;
+                        item.category = categories;
 
                         listItem.Add(item);
                         count++;
@@ -415,6 +463,7 @@ namespace EAE_Company.Models
             {
                 log.Error("ERROR at : " + ex);
 
+            }
             }
             return listItem;
         }
@@ -461,6 +510,49 @@ namespace EAE_Company.Models
             catch (Exception ex)
             {
                 log.Error("ERROR INSERT ITEM at : " + ex.Message);
+
+            }
+        }
+
+        public void updateItem(Item item)
+        {
+            try
+            {
+                string sQuery = @" UPDATE [item] SET
+                   
+		            [item_name] = N'{0}',
+		            [item_name_en] = N'{1}',
+		            [category_id1] = '{2}',
+		            [category_id2] = '{3}',
+		            [category_id3] = '{4}',
+		            [category_id4] = '{5}',
+		            [category_id5] = '{6}',
+		            [description] = N'{7}',
+		            [description_en] = N'{8}'
+	            WHERE
+		            [item_id] = '{9}'";
+
+                decimal price = 0;
+                if (item.getPrice() != null)
+                {
+                    price = decimal.Parse(item.getPrice().Trim());
+                }
+
+                sQuery = string.Format(sQuery,  item.getNameVi(), item.getNameEn(), item.getCategory()[0],
+                    item.getCategory()[1], item.getCategory()[2], item.getCategory()[3], item.getCategory()[4],
+                    item.getDescriptionVi(), item.getDescriptionEn(), item.getItemID());
+
+                SqlConnection con = new SqlConnection(ClsCommons.connectionStr);
+                SqlCommand command = new SqlCommand(sQuery, con);
+                con.Open();
+                command.ExecuteNonQuery();
+                con.Close();
+                log.Info("UPDATE item " + item.getNameVi() + "success ! ");
+
+            }
+            catch (Exception ex)
+            {
+                log.Error("ERROR UPDATE ITEM at : " + ex.Message);
 
             }
         }
@@ -536,5 +628,15 @@ namespace EAE_Company.Models
         {
             return this.itemCode;
         }
+
+        public bool isNumeric(object expression)
+        {
+            if (expression == null)
+                return false;
+
+            double number;
+            return Double.TryParse(Convert.ToString(expression, CultureInfo.InvariantCulture), System.Globalization.NumberStyles.Any, NumberFormatInfo.InvariantInfo, out number);
+        }
+
     }
 }

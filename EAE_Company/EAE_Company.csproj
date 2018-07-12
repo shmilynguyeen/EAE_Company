@@ -287,13 +287,14 @@
     <Content Include="assets\pages\css\portfolio.css" />
     <Content Include="assets\pages\css\slider.css" />
     <Content Include="assets\pages\css\style-shop.css" />
+    <Content Include="assets\pages\img\brands\abb.jpg" />
     <Content Include="assets\pages\img\brands\canon.jpg" />
     <Content Include="assets\pages\img\brands\download.jpg" />
-    <Content Include="assets\pages\img\brands\honeywell.png" />
-    <Content Include="assets\pages\img\brands\lenze.png" />
-    <Content Include="assets\pages\img\brands\mitsubishi.png" />
-    <Content Include="assets\pages\img\brands\omron.png" />
-    <Content Include="assets\pages\img\brands\yaskawa.png" />
+    <Content Include="assets\pages\img\brands\honeywell.jpg" />
+    <Content Include="assets\pages\img\brands\lenze.jpg" />
+    <Content Include="assets\pages\img\brands\mitsubishi.jpg" />
+    <Content Include="assets\pages\img\brands\omron.jpg" />
+    <Content Include="assets\pages\img\brands\yaskawa.jpg" />
     <Content Include="assets\pages\img\careers\careers.jpg" />
     <Content Include="assets\pages\img\cart-img.jpg" />
     <Content Include="assets\pages\img\clients\client_1.png" />
@@ -532,6 +533,8 @@
     <Content Include="assets\plugins\bootstrap\css\bootstrap.css" />
     <Content Include="assets\plugins\bootstrap\css\bootstrap.min.css" />
     <Content Include="assets\plugins\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\plugins\bootstrap\fonts\google_font1.css" />
+    <Content Include="assets\plugins\bootstrap\fonts\google_font2.css" />
     <Content Include="assets\plugins\bootstrap\js\bootstrap.js" />
     <Content Include="assets\plugins\bootstrap\js\bootstrap.min.js" />
     <Content Include="assets\plugins\bootstrap\js\npm.js" />
@@ -785,6 +788,8 @@
     <Content Include="assets\plugins\assets\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="assets\plugins\assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="assets\plugins\assets\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Admin.Master" />
+    <None Include="Properties\PublishProfiles\EAE_Company.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -949,6 +954,13 @@
     </Compile>
     <Compile Include="admin.aspx.designer.cs">
       <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
     <Compile Include="admin_items.aspx.cs">
       <DependentUpon>admin_items.aspx</DependentUpon>

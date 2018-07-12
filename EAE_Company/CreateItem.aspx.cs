@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using EAE_Company.Models;
 using System.Data.SqlClient;
@@ -24,14 +22,18 @@ namespace EAE_Company
             {
                 Response.Redirect("Login.aspx");
             }
+            btnUpdate.Visible = false;
             // init
             loadCategory();
 
             if (Request.QueryString["item_id"] != null)
             {
                 //case : Edit/update items 
+                btnUpdate.Visible = true;
+                btnsave.Visible = false;
                 string item_id = Request.QueryString["item_id"];
                 editItem(item_id);
+
             }
 
 
@@ -42,27 +44,27 @@ namespace EAE_Company
 
 
 
-        protected void btnPreview_Click(object sender, EventArgs e)
-        {
-            int count = 1;
-            //Validate file type 
-            //if (!Page.IsValid)
-            //{
-            //    lbOutput.Text = "Invalid file type ! ";
-            //}
+        //protected void btnPreview_Click(object sender, EventArgs e)
+        //{
+        //    int count = 1;
+        //    //Validate file type 
+        //    //if (!Page.IsValid)
+        //    //{
+        //    //    lbOutput.Text = "Invalid file type ! ";
+        //    //}
 
-            foreach (HttpPostedFile p in FileUpload1.PostedFiles)
-            {
-                if (count > 4)
-                {
-                    break;
-                }
-                p.SaveAs(MapPath("~/assets/data_img_temp/" + "img" + count + ".jpg"));
-                count += 1;
+        //    foreach (HttpPostedFile p in FileUpload1.PostedFiles)
+        //    {
+        //        if (count > 4)
+        //        {
+        //            break;
+        //        }
+        //        p.SaveAs(MapPath("~/assets/data_img_temp/" + "img" + count + ".jpg"));
+        //        count += 1;
 
-            }
+        //    }
 
-        }
+        //}
 
         protected void btnsave_Click(object sender, EventArgs e)
         {
@@ -120,35 +122,35 @@ namespace EAE_Company
                             sda.Fill(dt);
                             DropDownList1.DataSource = dt;
                             DropDownList1.DataTextField = "category_name";
-                            DropDownList1.DataValueField = "item_category_code";
+                            DropDownList1.DataValueField = "item_category_id";
                             DropDownList1.DataBind();
                             DropDownList1.Items.Insert(0, new ListItem(String.Empty, String.Empty));
                             DropDownList1.SelectedIndex = 0;
 
                             DropDownList2.DataSource = dt;
                             DropDownList2.DataTextField = "category_name";
-                            DropDownList2.DataValueField = "item_category_code";
+                            DropDownList2.DataValueField = "item_category_id";
                             DropDownList2.DataBind();
                             DropDownList2.Items.Insert(0, new ListItem(String.Empty, String.Empty));
                             DropDownList2.SelectedIndex = 0;
 
                             DropDownList3.DataSource = dt;
                             DropDownList3.DataTextField = "category_name";
-                            DropDownList3.DataValueField = "item_category_code";
+                            DropDownList3.DataValueField = "item_category_id";
                             DropDownList3.DataBind();
                             DropDownList3.Items.Insert(0, new ListItem(String.Empty, String.Empty));
                             DropDownList3.SelectedIndex = 0;
 
                             DropDownList4.DataSource = dt;
                             DropDownList4.DataTextField = "category_name";
-                            DropDownList4.DataValueField = "item_category_code";
+                            DropDownList4.DataValueField = "item_category_id";
                             DropDownList4.DataBind();
                             DropDownList4.Items.Insert(0, new ListItem(String.Empty, String.Empty));
                             DropDownList4.SelectedIndex = 0;
 
                             DropDownList5.DataSource = dt;
                             DropDownList5.DataTextField = "category_name";
-                            DropDownList5.DataValueField = "item_category_code";
+                            DropDownList5.DataValueField = "item_category_id";
                             DropDownList5.DataBind();
                             DropDownList5.Items.Insert(0, new ListItem(String.Empty, String.Empty));
                             DropDownList5.SelectedIndex = 0;
@@ -166,12 +168,56 @@ namespace EAE_Company
             Item item = new Item().loadINFOByID(item_id);
 
             List<string> category = item.getCategory();
-            if (category.Count > 0)
+            txtItemNameVi.Text = item.getNameVi();
+            txtItemNameEn.Text = item.getNameEn();
+            txtDescriptionVi.Text = item.getDescriptionVi();
+            txtDescriptionVi.Text = item.getDescriptionEn();
+
+            try
             {
-                //DropDownList1.Items.FindByValue(category[0].Trim()).Selected = true;
-                DropDownList1.SelectedValue = category[0];
+                DropDownList1.SelectedValue = item.getCategory()[0];
             }
+            catch (Exception e)
+            {
+            }
+            try
+            {
+                DropDownList2.SelectedValue = item.getCategory()[1];
+            }
+            catch (Exception e)
+            {
+            }
+            try
+            {
+                DropDownList3.SelectedValue = item.getCategory()[2];
+            }
+            catch (Exception e)
+            {
+            }
+            try
+            {
+                DropDownList4.SelectedValue = item.getCategory()[3];
+            }
+            catch (Exception e)
+            {
+            }
+            try
+            {
+                DropDownList5.SelectedValue = item.getCategory()[4];
+            }
+            catch (Exception e)
+            {
+            }
+
+
+
+
+
+
+
         }
+
+
 
         public void getFileUpload(string item_code)
         {
@@ -218,6 +264,66 @@ namespace EAE_Company
                         log.Error(ex.Message);
 
                     }
+                }
+            }
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("admin_item.aspx");
+        }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (Request.QueryString["item_id"] != null)
+            {
+
+                String item_id = Request.QueryString["item_id"];
+                Item item = new Item().loadINFOByID(item_id);
+                List<String> categoryCode = new List<string>();
+                categoryCode.Add(DropDownList1.SelectedValue);
+                categoryCode.Add(DropDownList2.SelectedValue);
+                categoryCode.Add(DropDownList3.SelectedValue);
+                categoryCode.Add(DropDownList4.SelectedValue);
+                categoryCode.Add(DropDownList5.SelectedValue);
+
+                item.setItemName(txtItemNameVi.Text);
+                item.setItemNameEn(txtItemNameEn.Text);
+                item.setItemDescription(txtDescriptionVi.Text);
+                item.setItemDescriptionEn(txtDescriptionEn.Text);
+                item.setCategory(categoryCode);
+
+                // UPDATE ITEM ! 
+                new Item().updateItem(item);
+                getFileUpload(item.getItemCode()); // Update images
+
+            }
+
+            // DELETE IMAGES IF EXISTS ANY REQUEST
+            string hiddens = hidden.Value.Trim();
+            if (hiddens != null && hiddens.Length > 0)
+            {
+                /* store using for delete image */
+                string storeProc2 = "[usp_InsertUpdateitem_image]";
+
+                //split method for split each element in source list hidden 
+                Char delimiter = ' ';
+                String[] substrings = hiddens.Split(delimiter);
+                foreach (var substring in substrings)
+                {
+                    string tes = substring;
+
+                    using (SqlConnection conn = new SqlConnection(ClsCommons.connectionStr))
+                    {
+                        SqlCommand cmd = new SqlCommand(storeProc2, conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@item_address", substring);
+                        conn.Open();
+                        cmd.ExecuteScalar();
+                        conn.Close();
+                    }
+
                 }
             }
         }

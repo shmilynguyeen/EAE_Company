@@ -7,7 +7,7 @@
         // GET ITEM INFO WITH ITEM COD  
         string itemCODE = Request.QueryString["code"];
         Item item = new Item();
-        item = item.loadINFOByCode(itemCODE);
+        item = item.loadINFOByID(itemCODE);
     %>
     <!-- BEGIN CONTENT -->
     <div class="col-md-9 col-sm-7">
@@ -109,7 +109,7 @@
                 <asp:Label runat="server" Text="<%$ Resources:SiteMaster, mostPopularProduct %>"> </asp:Label></h2>
             <div class="owl-carousel owl-carousel4">
 
-                <% List<Item> similarItems = item.findSimilarItems();
+                <% List<Item> similarItems = item.findSimilarItems(item.getCategory()[0]);
                     if (similarItems.Count > 0)
                     {
                         foreach (Item i in similarItems)
