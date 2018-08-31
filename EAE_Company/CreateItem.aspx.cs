@@ -18,6 +18,10 @@ namespace EAE_Company
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!Page.IsPostBack)
+            {
+                loadCategory();
+            }
             if (Session["user"] == null)
             {
                 Response.Redirect("Login.aspx");
@@ -70,11 +74,11 @@ namespace EAE_Company
         {
             List<string> imageDelete = (List<string>)Session["imageDelete"];
             List<string> categoryCode = new List<string>();
-            categoryCode.Add(DropDownList1.SelectedValue);
-            categoryCode.Add(DropDownList2.SelectedValue);
-            categoryCode.Add(DropDownList3.SelectedValue);
-            categoryCode.Add(DropDownList4.SelectedValue);
-            categoryCode.Add(DropDownList5.SelectedValue);
+            categoryCode.Add(DropDownList1.SelectedItem.Value);
+            categoryCode.Add(DropDownList2.SelectedItem.Value);
+            categoryCode.Add(DropDownList3.SelectedItem.Value);
+            categoryCode.Add(DropDownList4.SelectedItem.Value);
+            categoryCode.Add(DropDownList5.SelectedItem.Value);
 
             string itemNameVi = txtItemNameVi.Text;
             string itemNameEn = txtItemNameEn.Text;
@@ -121,39 +125,39 @@ namespace EAE_Company
                         {
                             sda.Fill(dt);
                             DropDownList1.DataSource = dt;
-                            DropDownList1.DataTextField = "category_name";
-                            DropDownList1.DataValueField = "item_category_id";
+                            //DropDownList1.DataTextField = "category_name";
+                            //DropDownList1.DataValueField = "item_category_id";
                             DropDownList1.DataBind();
-                            DropDownList1.Items.Insert(0, new ListItem(String.Empty, String.Empty));
-                            DropDownList1.SelectedIndex = 0;
+                            DropDownList1.Items.Insert(0, new ListItem(String.Empty, "0"));
+                            //DropDownList1.SelectedIndex = 0;
 
                             DropDownList2.DataSource = dt;
-                            DropDownList2.DataTextField = "category_name";
-                            DropDownList2.DataValueField = "item_category_id";
+                            //DropDownList2.DataTextField = "category_name";
+                            //DropDownList2.DataValueField = "item_category_id";
                             DropDownList2.DataBind();
-                            DropDownList2.Items.Insert(0, new ListItem(String.Empty, String.Empty));
-                            DropDownList2.SelectedIndex = 0;
+                            DropDownList2.Items.Insert(0, new ListItem(String.Empty, "0"));
+                            //DropDownList2.SelectedIndex = 0;
 
                             DropDownList3.DataSource = dt;
-                            DropDownList3.DataTextField = "category_name";
-                            DropDownList3.DataValueField = "item_category_id";
+                            //DropDownList3.DataTextField = "category_name";
+                            //DropDownList3.DataValueField = "item_category_id";
                             DropDownList3.DataBind();
-                            DropDownList3.Items.Insert(0, new ListItem(String.Empty, String.Empty));
-                            DropDownList3.SelectedIndex = 0;
+                            DropDownList3.Items.Insert(0, new ListItem(String.Empty, "0"));
+                            //DropDownList3.SelectedIndex = 0;
 
                             DropDownList4.DataSource = dt;
-                            DropDownList4.DataTextField = "category_name";
-                            DropDownList4.DataValueField = "item_category_id";
+                            //DropDownList4.DataTextField = "category_name";
+                            //DropDownList4.DataValueField = "item_category_id";
                             DropDownList4.DataBind();
-                            DropDownList4.Items.Insert(0, new ListItem(String.Empty, String.Empty));
-                            DropDownList4.SelectedIndex = 0;
+                            DropDownList4.Items.Insert(0, new ListItem(String.Empty, "0"));
+                            //DropDownList4.SelectedIndex = 0;
 
                             DropDownList5.DataSource = dt;
-                            DropDownList5.DataTextField = "category_name";
-                            DropDownList5.DataValueField = "item_category_id";
+                            //DropDownList5.DataTextField = "category_name";
+                            //DropDownList5.DataValueField = "item_category_id";
                             DropDownList5.DataBind();
-                            DropDownList5.Items.Insert(0, new ListItem(String.Empty, String.Empty));
-                            DropDownList5.SelectedIndex = 0;
+                            DropDownList5.Items.Insert(0, new ListItem(String.Empty, "0"));
+                            //DropDownList5.SelectedIndex = 0;
 
                         }
 
@@ -225,7 +229,7 @@ namespace EAE_Company
             string query = "[insertImage]";
             string filepath = Server.MapPath(@"/images/uploads/");
             HttpFileCollection uploadedFiles = Request.Files;
-            if (uploadedFiles.Count > 0)
+            if (uploadedFiles.Count > 1)
             {
                 for (int i = 0; i < uploadedFiles.Count; i++)
                 {
@@ -258,6 +262,7 @@ namespace EAE_Company
                                 conn.Close();
                             }
                         }
+                        
                     }
                     catch (Exception ex)
                     {
@@ -266,11 +271,32 @@ namespace EAE_Company
                     }
                 }
             }
+            else
+            {
+                using (SqlConnection conn = new SqlConnection(ClsCommons.connectionStr))
+                {
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@item_id", item.getItemID());
+                    cmd.Parameters.AddWithValue("@image_code", item.getItemCode());
+                    cmd.Parameters.AddWithValue("@image_type", "PNG");
+                    cmd.Parameters.AddWithValue("@image_size", 1024);
+                    cmd.Parameters.AddWithValue("@image_address", "/assets/pages/img/index-sliders/slide1.jpg");
+                    cmd.Parameters.AddWithValue("@date_time", DateTime.Now);
+
+                    conn.Open();
+                    int result = Convert.ToInt32(cmd.ExecuteScalar());
+                    conn.Close();
+                }
+
+
+            }
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("admin_item.aspx");
+            Response.Redirect("admin_items.aspx");
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)

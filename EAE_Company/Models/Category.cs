@@ -4,6 +4,7 @@ using System.Data;
 using log4net;
 using Microsoft.ApplicationBlocks.Data;
 using EAE_Company.Commons;
+using System.Data.SqlClient;
 
 namespace EAE_Company.Models
 {
@@ -62,7 +63,7 @@ namespace EAE_Company.Models
 
             return categoryList;
         }
-
+        
         public string getCategoryCode()
         {
             return this.categoryCode;
@@ -74,8 +75,36 @@ namespace EAE_Company.Models
         }
 
         public string getCategoryNameEn()
-        { 
+        {
             return this.categoryNameEn;
+        }
+
+        public void insertCategory()
+        {
+            try
+            {
+                string sQuery = @"INSERT INTO [dbo].[category]
+           ([Category_Code]
+           ,[Category_Name_Vi]
+           ,[Category_Name_Eng]
+           ,[Is_Active])
+            VALUES ('{0}', '{1}', '{2}', '{3}')";
+
+                sQuery = string.Format(sQuery, this.getCategoryCode(), this.getCategoryNameVi(), this.getCategoryNameEn(), '1');
+
+                SqlConnection con = new SqlConnection(ClsCommons.connectionStr);
+                SqlCommand command = new SqlCommand(sQuery, con);
+                con.Open();
+                command.ExecuteNonQuery();
+                con.Close();
+                log.Info("Insert category  " + getCategoryCode() + "success ! ");
+
+            }
+            catch (Exception ex)
+            {
+                log.Error("ERROR INSERT Category at : " + ex.Message);
+
+            }
         }
     }
 

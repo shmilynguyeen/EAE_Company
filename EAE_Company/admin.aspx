@@ -46,13 +46,13 @@
                 <div class="div-square">
                     <a href="admin_category.aspx">
                         <i class="fa fa-lightbulb-o fa-5x"></i>
-                        <h4>Item Category</h4>
+                        <h4>Category</h4>
                     </a>
                 </div>
 
 
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+            <%--<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                 <div class="div-square">
                     <a href="blank.html">
                         <i class="fa fa-users fa-5x"></i>
@@ -340,7 +340,7 @@
                 </div>
 
 
-            </div>
+            </div>--%>
         </div>
         <!-- /. ROW  -->
         <div class="row">

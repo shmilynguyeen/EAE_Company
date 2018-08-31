@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Admin.Master" EnableEventValidation="true" AutoEventWireup="true" CodeBehind="CreateItem.aspx.cs" Inherits="EAE_Company.CreateItem" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Admin.Master"   EnableEventValidation="true"   AutoEventWireup="true" CodeBehind="CreateItem.aspx.cs" Inherits="EAE_Company.CreateItem" %>
 
 <%@ Import Namespace="EAE_Company.Models" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -43,35 +43,35 @@
                 <br />
                 <div class="input-group">
                     <span class="input-group-addon">Category 1 </span>
-                    <asp:DropDownList runat="server" class="form-control" ID="DropDownList1">
+                    <asp:DropDownList runat="server"  DataValueField="item_category_id"   DataTextField="category_name"  class="form-control" ID="DropDownList1">
                     </asp:DropDownList>
                 </div>
                 <br />
                 <div class="input-group">
                     <span class="input-group-addon">Category 2</span>
-                    <asp:DropDownList runat="server" class="form-control" ID="DropDownList2">
+                    <asp:DropDownList runat="server"  DataValueField="item_category_id" DataTextField="category_name" class="form-control" ID="DropDownList2">
                     </asp:DropDownList>
                 </div>
                 <br />
                 <div class="input-group">
                     <span class="input-group-addon">Category 3</span>
-                    <asp:DropDownList runat="server" class="form-control" ID="DropDownList3">
+                    <asp:DropDownList runat="server"   DataValueField="item_category_id" DataTextField="category_name" class="form-control" ID="DropDownList3">
                     </asp:DropDownList>
                 </div>
                 <br />
                 <div class="input-group">
                     <span class="input-group-addon">Category 4 </span>
-                    <asp:DropDownList runat="server" class="form-control" ID="DropDownList4">
+                    <asp:DropDownList runat="server"  DataValueField="item_category_id" DataTextField="category_name" class="form-control" ID="DropDownList4">
                     </asp:DropDownList>
                 </div>
                 <br />
                 <div class="input-group">
                     <span class="input-group-addon">Category 5 </span>
-                    <asp:DropDownList runat="server" class="form-control" ID="DropDownList5">
+                    <asp:DropDownList runat="server"  DataValueField="item_category_id" DataTextField="category_name" class="form-control" ID="DropDownList5">
                     </asp:DropDownList>
                 </div>
                 <br />
-             
+
             </div>
 
             <%-- LOAD ALL IMAGES OF ITEM --%>
@@ -93,7 +93,7 @@
 
                         }
 
-                        if (item.getImageList().Count > 0)
+                        if (null != item && item.getImageList() != null)
                         {
                             int count = 0;
                             foreach (string src in item.getImageList())
@@ -123,11 +123,11 @@
 
                             if (confirm('Bạn có muốn xóa ảnh này không ?')) {
                                 document.getElementById('<%= temp %>').style.visibility = "hidden";
-                                        listRemove.push('<%= src %>');
-                                        SetHiddenField();
-                                    }
+                                listRemove.push('<%= src %>');
+                                SetHiddenField();
+                            }
 
-                                }
+                        }
                     </script>
 
 
@@ -144,7 +144,7 @@
                             var vv = listRemove.join("  ");
                             document.getElementById("<%=hidden.ClientID%>").value = vv;
 
-                                }
+                        }
                     </script>
                 </div>
                 <br />

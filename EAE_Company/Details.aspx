@@ -114,7 +114,7 @@
                     {
                         foreach (Item i in similarItems)
                         {
-                            string urlDetail =  "Detail.aspx?code=" + i.getItemID();
+                            string urlDetail =  "Details.aspx?code=" + i.getItemID();
 
                 %>
                 <div>

@@ -12,7 +12,8 @@
         </div>
         <!-- /. ROW  -->
         <hr />
-
+         <asp:Button runat="server" ID="btnCreateCategory" OnClick="btnCreateCategory_Click" class="btn btn-success" Text="Create New Item" />
+         <br />
 
         <%-- CATEGORY MANAGEMENT --%>
         <% 
@@ -21,37 +22,30 @@
         %>
         <div class="row">
             <div class="col-lg-12 col-md-12">
-                <h5>Category Management</h5>
-                <table class="table table-striped table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Category Code</th>
-                            <th>Category Name (Vi)</th>
-                            <th>Category Name (En)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <%--  DISPLAY ALL CATEGORY  --%>
-                        <% 
-                            int index = 1;
-                            foreach (Category category in categoryList)
-                            {
-                        %>
-                        <tr>
-                            <td>
-                                <div contenteditable="true"><%= index %></div>
-                            </td>
-                            <td><%= category.getCategoryCode() %></td>
-                            <td><%= category.getCategoryNameVi() %></td>
-                            <td><%= category.getCategoryNameEn() %></td>
-                        </tr>
-                        <%
-                                index += 1;
-                            }
-                        %>
-                    </tbody>
-                </table>
+                 <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <h4>Category Management</h4>
+                
+                <div class="row">
+                <asp:GridView ID="GridView1" runat="server" DataKeyNames="ID" AutoGenerateColumns="false" AllowPaging="true"
+                    OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="20" class="table table-striped table-bordered table-hover"
+                    OnRowEditing="GridView1_RowEditing" OnRowDeleting="GridView1_RowDeleting" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit"
+                    HeaderStyle-HorizontalAlign="Left" PagerSettings-Mode="NumericFirstLast" PagerSettings-Visible="true">
+                    <Columns>
+                        <asp:BoundField ItemStyle-Width="20px" DataField="ID" HeaderText="ID" />
+                        <asp:BoundField ItemStyle-Width="150px" DataField="Category_Code" HeaderText="Category Code" />
+                        <asp:BoundField ItemStyle-Width="150px" DataField="Category_Name_Vi" HeaderText="Category (Vi)" />
+                        <asp:BoundField ItemStyle-Width="150px" DataField="Category_Name_Eng" HeaderText="Category Name (En)" />
+                        
+                        <%--<asp:BoundField ItemStyle-Width="150px" DataField="price" HeaderText="Item Price" />--%>
+                        <asp:CommandField ItemStyle-Width="20px" ShowEditButton="true" />
+                        <asp:CommandField ItemStyle-Width="20px" ShowDeleteButton="true" />
+                    </Columns>
+                </asp:GridView>
+                    </div>
+                <!-- /. ROW  -->
+            </div>
+        </div>
                 <hr />
                 <!-- /. ROW  -->
             </div>

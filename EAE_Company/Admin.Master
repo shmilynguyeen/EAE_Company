@@ -31,16 +31,16 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="Default.aspx">
+                          <%--  <a class="navbar-brand" href="Default.aspx">
                                 <img src="assets/corporate/img/logos/logo-shop-red.png"  style="background: white;"/>
 
-                            </a>
+                            </a>--%>
 
                         </div>
 
                         <span class="logout-spn">
                             <%--<a href="Default.aspx" style="color: #fff;">LOGOUT</a>--%>
-                            <asp:Button runat="server" ID="btnLogout" OnClick="btnLogout_Click" style="color: #fff;" Text="LOGOUT" />
+                            <asp:Button runat="server" ID="btnLogout" OnClick="btnLogout_Click" style="color: #214761;" Text="LOGOUT" />
 
                         </span>
                     </div>
@@ -58,9 +58,9 @@
 
 
                             <li>
-                                <a href="admin_management.aspx"><i class="fa fa-table "></i>UI Elements  <span class="badge">Included</span></a>
+                                <a href="admin_management.aspx"><i class="fa fa-table "></i> Category  <span class="badge">Included</span></a>
                             </li>
-                            <li>
+                          <%--  <li>
                                 <a href="admin_blank.aspx"><i class="fa fa-edit "></i>Blank Page  <span class="badge">Included</span></a>
                             </li>
 
@@ -80,7 +80,7 @@
                             </li>
                             <li>
                                 <a href="#"><i class="fa fa-edit "></i>My Link Five </a>
-                            </li>
+                            </li>--%>
 
                         </ul>
                     </div>

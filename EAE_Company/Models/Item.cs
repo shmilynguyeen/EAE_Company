@@ -474,6 +474,7 @@ namespace EAE_Company.Models
 
         public void insertItem(Item item)
         {
+            
             try
             {
                 string sQuery = @" INSERT INTO [dbo].[item]
