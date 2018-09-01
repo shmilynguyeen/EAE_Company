@@ -569,7 +569,7 @@
                             <!-- BEGIN BOTTOM CONTACTS -->
                             <div class="col-md-3 col-sm-6 pre-footer-col">
                                 <h2><asp:Label runat="server" Text="<%$ Resources:SiteMaster, our_contacts %>"></asp:Label></h2>
-                                <address class="margin-bottom-40">
+                                 <address class="margin-bottom-40">
                                     589/21,Ha Noi Street, Linh Trung<br>
                                     Thu Duc, Ho Chi Minh<br>
                                     Phone: 0903 468 576 <br>
@@ -577,6 +577,9 @@
 
                                    <%-- Fax: <br>--%>
                                     Email: <a href="#">eae.tech.company@gmail.com</a><br>
+                                    Skype: <a >eae.tech.company</a><br>
+                                    <script type="text/javascript" src="https://secure.skypeassets.com/i/scom/js/skype-uri.js"></script>
+                                    Facebook: <a href="https://www.facebook.com/nganhdet.maymoc">https://www.facebook.com</a>
                                 </address>
                             </div>
                             <!-- END BOTTOM CONTACTS -->
