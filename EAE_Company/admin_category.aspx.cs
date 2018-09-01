@@ -32,7 +32,7 @@ namespace EAE_Company
             string constr = ClsCommons.connectionStr;
             using (SqlConnection con = new SqlConnection(constr))
             {
-                string sQuery = @" SELECT * FROM category  WHERE Is_Active = '1' ";
+                string sQuery = @" SELECT * FROM item_category  WHERE is_Active = '1' ";
 
                 sQuery = string.Format(sQuery);
                 using (SqlCommand cmd = new SqlCommand(sQuery))
@@ -57,8 +57,8 @@ namespace EAE_Company
             SqlConnection conn = new SqlConnection(ClsCommons.connectionStr);
             conn.Open();
             SqlCommand cmd = new SqlCommand(@" SELECT  *
-                          FROM category 
-                           Where  Is_Active ='1' ", conn);
+                          FROM item_category 
+                           Where  is_Active ='1' ", conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -90,7 +90,7 @@ namespace EAE_Company
             //string id = string id = (e.Item as GridDataItem).OwnerTableView.DataKeyValues[e.Item.ItemIndex]["geo_province_id"].ToString();
 
             conn.Open();
-            string sQuery = @"UPDATE category set Is_Active = 0 where ID='{0}'";
+            string sQuery = @"UPDATE item_category set is_Active = 0 where item_category_id='{0}'";
             sQuery = string.Format(sQuery, Convert.ToInt32(id));
             SqlCommand cmd = new SqlCommand(sQuery, conn);
             cmd.ExecuteNonQuery();
@@ -107,18 +107,16 @@ namespace EAE_Company
             string id = GridView1.DataKeys[e.RowIndex].Value.ToString();
             string categoryCode = ((TextBox)row.Cells[1].Controls[0]).Text.Trim();
             string categoryNameVi = ((TextBox)row.Cells[2].Controls[0]).Text.Trim();
-            string categoryNameEn = ((TextBox)row.Cells[3].Controls[0]).Text.Trim();
 
             GridView1.EditIndex = -1;
             conn.Open();
             //SqlCommand cmd = new SqlCommand("SELECT * FROM detail", conn);  
-            string sQuery = @"UPDATE [category]
+            string sQuery = @"UPDATE [item_category]
                    SET  
-                       [Category_Code] = N'{0}'
-                      ,[Category_Name_Vi] = N'{1}'
-                      ,[Category_Name_Eng] = N'{2}'
-                       WHERE ID = '{3}'";
-            sQuery = string.Format(sQuery, categoryCode, categoryNameVi, categoryNameEn, id);
+                       [item_category_code] = N'{0}'
+                      ,[category_name] = N'{1}'
+                       WHERE item_category_id = '{2}'";
+            sQuery = string.Format(sQuery, categoryCode, categoryNameVi, id);
             SqlCommand cmd = new SqlCommand(sQuery, conn);
             cmd.ExecuteNonQuery();
             conn.Close();
@@ -145,7 +143,8 @@ namespace EAE_Company
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
-            GridView1.DataBind();
+            //GridView1.DataBind();
+            bindGrid();
         }
 
 

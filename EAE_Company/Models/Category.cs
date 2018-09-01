@@ -21,11 +21,10 @@ namespace EAE_Company.Models
         {
         }
 
-        public Category(string code, string nameVi, string nameEn)
+        public Category(string code, string nameVi)
         {
             this.categoryCode = code;
             this.categoryNameVi = nameVi;
-            this.categoryNameEn = nameEn;
         }
 
         public List<Category> getAllCategory()
@@ -34,9 +33,12 @@ namespace EAE_Company.Models
             string sQuery = "";
             try
             {
-                sQuery = @"SELECT  [Category_Code],[Category_Name_Vi],[Category_Name_Eng]
-                      FROM [category]
-                      WHERE Is_Active is not null";
+                sQuery = @"SELECT [item_category_code]
+                      ,[category_name]
+                      ,[category_type]
+                      ,[category_level]
+                      FROM [item_category]
+                      WHERE [is_Active] is not null";
 
                 sQuery = string.Format(sQuery);
                 DataSet ds = SqlHelper.ExecuteDataset(ClsCommons.connectionStr, CommandType.Text, sQuery);
@@ -47,9 +49,8 @@ namespace EAE_Company.Models
                     {
                         DataRow r = ds.Tables[0].Rows[count];
                         Category category = new Category();
-                        category.categoryCode = r["Category_Code"].ToString().Trim();
-                        category.categoryNameVi = r["Category_Name_Vi"].ToString().Trim();
-                        category.categoryNameEn = r["Category_Name_Eng"].ToString().Trim();
+                        category.categoryCode = r["item_category_code"].ToString().Trim();
+                        category.categoryNameVi = r["category_name"].ToString().Trim();
                         categoryList.Add(category);
                         count++;
                     }
@@ -83,14 +84,13 @@ namespace EAE_Company.Models
         {
             try
             {
-                string sQuery = @"INSERT INTO [dbo].[category]
-           ([Category_Code]
-           ,[Category_Name_Vi]
-           ,[Category_Name_Eng]
-           ,[Is_Active])
-            VALUES ('{0}', '{1}', '{2}', '{3}')";
+                string sQuery = @"INSERT INTO [dbo].[item_category]
+           ([item_category_code],
+           [category_name],
+            [Is_Active])
+            VALUES ('{0}', '{1}', '{2}' )";
 
-                sQuery = string.Format(sQuery, this.getCategoryCode(), this.getCategoryNameVi(), this.getCategoryNameEn(), '1');
+                sQuery = string.Format(sQuery, this.getCategoryCode(), this.getCategoryNameVi(), '1');
 
                 SqlConnection con = new SqlConnection(ClsCommons.connectionStr);
                 SqlCommand command = new SqlCommand(sQuery, con);

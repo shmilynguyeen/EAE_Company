@@ -28,22 +28,6 @@ namespace EAE_Company
             }
         }
 
-        //protected void btnsave_Click(object sender, EventArgs e)
-        //{
-        //    List<string> imageDelete = (List<string>)Session["imageDelete"];
-        //    string categoryCode = dropdownCategoryCode.SelectedValue;
-        //    string itemNameVi = txtItemNameVi.Text;
-        //    string itemNameEn = txtItemNameEn.Text;
-        //    string descriptionVi = txtDescriptionVi.Text;
-        //    string descriptionEn = txtDescriptionEn.Text;
-        //    string price = txtPrice.Text;
-        //    string itemGroup = txtGroup.SelectedValue;
-        //    List<String> img = new List<string>();
-        //    Item item = new Item(categoryCode, itemNameVi, itemNameEn, descriptionVi, descriptionEn, price, img, itemGroup);
-        //    item.insertItem(item);
-
-
-        //}
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
 
@@ -102,7 +86,7 @@ namespace EAE_Company
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
-            GridView1.DataBind();
+            bindGrid();
         }
         protected void gvbind()
         {

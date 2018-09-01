@@ -74,11 +74,11 @@ namespace EAE_Company
         {
             List<string> imageDelete = (List<string>)Session["imageDelete"];
             List<string> categoryCode = new List<string>();
-            categoryCode.Add(DropDownList1.SelectedItem.Value);
-            categoryCode.Add(DropDownList2.SelectedItem.Value);
-            categoryCode.Add(DropDownList3.SelectedItem.Value);
-            categoryCode.Add(DropDownList4.SelectedItem.Value);
-            categoryCode.Add(DropDownList5.SelectedItem.Value);
+            categoryCode.Add(DropDownList1.SelectedValue);
+            categoryCode.Add(DropDownList2.SelectedValue);
+            categoryCode.Add(DropDownList3.SelectedValue);
+            categoryCode.Add(DropDownList4.SelectedValue);
+            categoryCode.Add(DropDownList5.SelectedValue);
 
             string itemNameVi = txtItemNameVi.Text;
             string itemNameEn = txtItemNameEn.Text;
@@ -125,39 +125,20 @@ namespace EAE_Company
                         {
                             sda.Fill(dt);
                             DropDownList1.DataSource = dt;
-                            //DropDownList1.DataTextField = "category_name";
-                            //DropDownList1.DataValueField = "item_category_id";
                             DropDownList1.DataBind();
                             DropDownList1.Items.Insert(0, new ListItem(String.Empty, "0"));
-                            //DropDownList1.SelectedIndex = 0;
 
                             DropDownList2.DataSource = dt;
-                            //DropDownList2.DataTextField = "category_name";
-                            //DropDownList2.DataValueField = "item_category_id";
-                            DropDownList2.DataBind();
                             DropDownList2.Items.Insert(0, new ListItem(String.Empty, "0"));
-                            //DropDownList2.SelectedIndex = 0;
 
                             DropDownList3.DataSource = dt;
-                            //DropDownList3.DataTextField = "category_name";
-                            //DropDownList3.DataValueField = "item_category_id";
-                            DropDownList3.DataBind();
                             DropDownList3.Items.Insert(0, new ListItem(String.Empty, "0"));
-                            //DropDownList3.SelectedIndex = 0;
 
                             DropDownList4.DataSource = dt;
-                            //DropDownList4.DataTextField = "category_name";
-                            //DropDownList4.DataValueField = "item_category_id";
-                            DropDownList4.DataBind();
                             DropDownList4.Items.Insert(0, new ListItem(String.Empty, "0"));
-                            //DropDownList4.SelectedIndex = 0;
 
                             DropDownList5.DataSource = dt;
-                            //DropDownList5.DataTextField = "category_name";
-                            //DropDownList5.DataValueField = "item_category_id";
-                            DropDownList5.DataBind();
                             DropDownList5.Items.Insert(0, new ListItem(String.Empty, "0"));
-                            //DropDownList5.SelectedIndex = 0;
 
                         }
 
@@ -183,6 +164,7 @@ namespace EAE_Company
             }
             catch (Exception e)
             {
+                log.Error(e);
             }
             try
             {
@@ -190,6 +172,7 @@ namespace EAE_Company
             }
             catch (Exception e)
             {
+                log.Error(e);
             }
             try
             {
@@ -197,6 +180,7 @@ namespace EAE_Company
             }
             catch (Exception e)
             {
+                log.Error(e);
             }
             try
             {
@@ -204,6 +188,7 @@ namespace EAE_Company
             }
             catch (Exception e)
             {
+                log.Error(e);
             }
             try
             {
@@ -211,6 +196,7 @@ namespace EAE_Company
             }
             catch (Exception e)
             {
+                log.Error(e);
             }
 
 

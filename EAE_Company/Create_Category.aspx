@@ -32,15 +32,11 @@
                 </div>
                 <br />
                 <div class="input-group">
-                    <span class="input-group-addon">Category Name(vi)</span>
+                    <span class="input-group-addon">Category Name</span>
                     <asp:TextBox runat="server" ID="txtCategoryNameVi" type="text" class="form-control" placeholder="Category name(vi)" />
                 </div>
                 <br />
-                <div class="input-group">
-                    <span class="input-group-addon">Category Name(en)</span>
-                    <asp:TextBox runat="server" ID="txtCategoryNameEn" type="text" class="form-control" placeholder="Category name(en)" />
-                </div>
-                <br />
+                
                
                 
                 <br />

@@ -18,11 +18,10 @@ namespace EAE_Company
         {
 
             string categoryNameVi = txtCategoryNameVi.Text;
-            string categoryNameEn = txtCategoryNameEn.Text;
             string categoryCode = txtCategoryCode.Text;
 
 
-            Category category = new Category(categoryCode, categoryNameVi, categoryNameEn);
+            Category category = new Category(categoryCode, categoryNameVi);
 
             category.insertCategory();
             Response.Redirect("admin_category.aspx");
@@ -32,7 +31,7 @@ namespace EAE_Company
 
         protected void btnBack_Click(object sender, EventArgs e)
         {
-            Response.Redirect("admin.aspx");
+            Response.Redirect("admin_category.aspx");
         }
 
         

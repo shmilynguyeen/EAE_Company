@@ -43,31 +43,31 @@
                 <br />
                 <div class="input-group">
                     <span class="input-group-addon">Category 1 </span>
-                    <asp:DropDownList runat="server"  DataValueField="item_category_id"   DataTextField="category_name"  class="form-control" ID="DropDownList1">
+                    <asp:DropDownList runat="server"  AppendDataBoundItems="true" DataValueField="item_category_id"  DataTextField="category_name"  class="form-control" ID="DropDownList1">
                     </asp:DropDownList>
                 </div>
                 <br />
                 <div class="input-group">
                     <span class="input-group-addon">Category 2</span>
-                    <asp:DropDownList runat="server"  DataValueField="item_category_id" DataTextField="category_name" class="form-control" ID="DropDownList2">
+                    <asp:DropDownList runat="server" AppendDataBoundItems="true" DataValueField="item_category_id" DataTextField="category_name" class="form-control" ID="DropDownList2">
                     </asp:DropDownList>
                 </div>
                 <br />
                 <div class="input-group">
                     <span class="input-group-addon">Category 3</span>
-                    <asp:DropDownList runat="server"   DataValueField="item_category_id" DataTextField="category_name" class="form-control" ID="DropDownList3">
+                    <asp:DropDownList runat="server"  AppendDataBoundItems="true" DataValueField="item_category_id" DataTextField="category_name" class="form-control" ID="DropDownList3">
                     </asp:DropDownList>
                 </div>
                 <br />
                 <div class="input-group">
                     <span class="input-group-addon">Category 4 </span>
-                    <asp:DropDownList runat="server"  DataValueField="item_category_id" DataTextField="category_name" class="form-control" ID="DropDownList4">
+                    <asp:DropDownList runat="server" AppendDataBoundItems="true" DataValueField="item_category_id" DataTextField="category_name" class="form-control" ID="DropDownList4">
                     </asp:DropDownList>
                 </div>
                 <br />
                 <div class="input-group">
                     <span class="input-group-addon">Category 5 </span>
-                    <asp:DropDownList runat="server"  DataValueField="item_category_id" DataTextField="category_name" class="form-control" ID="DropDownList5">
+                    <asp:DropDownList runat="server" AppendDataBoundItems="true" DataValueField="item_category_id" DataTextField="category_name" class="form-control" ID="DropDownList5">
                     </asp:DropDownList>
                 </div>
                 <br />
